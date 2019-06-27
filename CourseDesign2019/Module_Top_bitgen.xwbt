@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.ncd
+OUTFILE=F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2ftg256
+WORKINGDIR=F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019
+LICENSE=ISE
+USER_INFO=135256_15690819_173552794_661

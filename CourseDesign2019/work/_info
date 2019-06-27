@@ -1,0 +1,160 @@
+m255
+K3
+13
+cModel Technology
+Z0 dF:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019
+T_opt
+VVIB^MMK6LkeThej2kX9^d0
+04 12 4 work vtf_SMG_test fast 0
+04 4 4 work glbl fast 0
+=1-847beb229aa7-5d1434e5-f0-41b4
+o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -L secureip +acc
+n@_opt
+OL;O;10.1c;51
+vglbl
+Ih6HTAe7>K>ORZEgb<oIl82
+VM[9mS]S:KA1i4VeCMX35[3
+Z1 dF:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019
+w1381681120
+8E:/XILINX/14.7/ISE_DS/ISE//verilog/src/glbl.v
+FE:/XILINX/14.7/ISE_DS/ISE//verilog/src/glbl.v
+L0 5
+Z2 OL;L;10.1c;51
+r1
+31
+Z3 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 2FPORO3=4@<@2HX3D:6A53
+!s85 0
+!s108 1561605347.430000
+!s107 E:/XILINX/14.7/ISE_DS/ISE//verilog/src/glbl.v|
+!s90 -reportprogress|300|E:/XILINX/14.7/ISE_DS/ISE//verilog/src/glbl.v|
+vModule_Top
+!s100 LnI:FW5P2g^Og2fIja@^O3
+IBS7oQdjX81`hY@cTl4NQh3
+VljnlEKIM]neaLHPcI60Ah3
+R1
+w1561605112
+8Module_Top.v
+FModule_Top.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|Module_Top.v|
+R3
+n@module_@top
+!s108 1561605346.960000
+!s107 Module_Top.v|
+!i10b 1
+!s85 0
+vsmg_control_module
+!s100 7F^O1PmB1ZAKznGCgGX`W3
+I@zd]`bUl9L5d7GjmUXJ_P3
+VCKDDh9cW>oQo@hRkfERzk3
+R1
+w1561602998
+8smg_control_module.v
+Fsmg_control_module.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|smg_control_module.v|
+R3
+!s108 1561605346.291000
+!s107 smg_control_module.v|
+!i10b 1
+!s85 0
+vsmg_encode_module
+!s100 kRNf5eObeMCb6]_WZ1QeQ3
+Im@`B<439o`982IaccFQgn2
+VYBIVz7NJAV>bgEbB0?XS?2
+R1
+w1561601418
+8smg_encode_module.v
+Fsmg_encode_module.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|smg_encode_module.v|
+R3
+!s108 1561605346.085000
+!s107 smg_encode_module.v|
+!i10b 1
+!s85 0
+vsmg_interface
+!s100 aV7Yc]6:_iW:W;0;[YMPE2
+I?h4`<V2?_bHe6DUGoNXJH1
+VQ`mFR:1G7FKU=WAYJ`WEj2
+R1
+w1561601422
+8smg_interface.v
+Fsmg_interface.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|smg_interface.v|
+R3
+!s108 1561605346.754000
+!s107 smg_interface.v|
+!i10b 1
+!s85 0
+vsmg_scan_module
+!s100 LK>9hM_?K@=lV;JfQQOPV2
+I64A47N9JSliPG:ABca9X;0
+VRWgWCjNCK@Q^l7kInB:503
+R1
+w1561601469
+8smg_scan_module.v
+Fsmg_scan_module.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|smg_scan_module.v|
+R3
+!s108 1561605345.830000
+!s107 smg_scan_module.v|
+!i10b 1
+!s85 0
+vTimer
+!s100 05=J3:nU]MzFkQb08n@kP1
+IOiQWiI47Nil`1FQ`PhCd`0
+VEhbUUl;6?[>EUO2ZX?=Zl3
+R1
+w1561603981
+8Timer.v
+FTimer.v
+L0 1
+R2
+r1
+31
+!s90 -reportprogress|300|Timer.v|
+R3
+n@timer
+!s108 1561605346.507000
+!s107 Timer.v|
+!i10b 1
+!s85 0
+vvtf_SMG_test
+IInAhfTZnC_0ShMJe[?b[f2
+VhHfQTQV1Rb7_lZHJ^M=>A1
+R1
+w1561605303
+8vtf_SMG_test.v
+Fvtf_SMG_test.v
+L0 25
+R2
+r1
+31
+R3
+nvtf_@s@m@g_test
+!s100 AR]QW44>HWB:bV8>`kMCd1
+!s108 1561605347.171000
+!s107 vtf_SMG_test.v|
+!s90 -reportprogress|300|vtf_SMG_test.v|
+!i10b 1
+!s85 0

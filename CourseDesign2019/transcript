@@ -1,0 +1,85 @@
+# Reading E:/Modelsim/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do {vtf_SMG_test.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module smg_scan_module
+# 
+# Top level modules:
+# 	smg_scan_module
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module smg_encode_module
+# 
+# Top level modules:
+# 	smg_encode_module
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module smg_control_module
+# 
+# Top level modules:
+# 	smg_control_module
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module Timer
+# 
+# Top level modules:
+# 	Timer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module smg_interface
+# 
+# Top level modules:
+# 	smg_interface
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module Module_Top
+# 
+# Top level modules:
+# 	Module_Top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module vtf_SMG_test
+# 
+# Top level modules:
+# 	vtf_SMG_test
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -L secureip -lib work -voptargs=\"+acc\" -t 1ps work.vtf_SMG_test glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "Timer(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "smg_control_module(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "smg_scan_module(fast)".
+# 
+# Loading work.vtf_SMG_test(fast)
+# Loading work.Module_Top(fast)
+# Loading work.Timer(fast)
+# Loading work.smg_interface(fast)
+# Loading work.smg_control_module(fast)
+# Loading work.smg_encode_module(fast)
+# Loading work.smg_scan_module(fast)
+# Loading work.glbl(fast)
+add wave -position insertpoint  \
+sim:/vtf_SMG_test/CLK
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+restart
+# Loading work.vtf_SMG_test(fast)
+# Loading work.Module_Top(fast)
+# Loading work.Timer(fast)
+# Loading work.smg_interface(fast)
+# Loading work.smg_control_module(fast)
+# Loading work.smg_encode_module(fast)
+# Loading work.smg_scan_module(fast)
+# Loading work.glbl(fast)
+run -all
