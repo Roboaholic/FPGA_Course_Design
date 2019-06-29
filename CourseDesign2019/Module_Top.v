@@ -8,9 +8,10 @@ module Module_Top
 );
 
     /******************************/ 
-			
-    wire [23:0]Number_Sig;
-	wire [3:0]key_value;
+	wire [23:0]Num_output;		
+   wire [23:0]Number_Sig;
+	wire [3:0]key_value; 
+	//wire [2:0]air_condition;
     Timer U1    
 	 (
 	    .CLK( CLK ),
@@ -23,7 +24,7 @@ module Module_Top
 	 (
 	    .CLK( CLK ),
 		.RSTn( RSTn ),
-		.Number_Sig( Number_Sig ), // input - from U1
+		.Num_output( Num_output ), // input - from U1
 		.key_value(key_value),
 		.SMG_Data( SMG_Data ),     // output - to top
 		.Scan_Sig( Scan_Sig )      // output - to top
@@ -37,4 +38,14 @@ module Module_Top
 		.key_in( KEY_IN ),
 		.key_value( key_value )
 	);
+	
+	logic_layer U4
+	(
+		.CLK( CLK ),
+		.RSTn( RSTn ),
+		.Num_output( Num_output ), // input - from U1
+		.key_value( key_value ),
+		.Number_Sig(Number_Sig),
+		.air_condition(air_condition)
+		);
 endmodule

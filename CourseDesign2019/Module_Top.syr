@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: Module_Top.prj
 
@@ -115,6 +115,10 @@ Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\Course
 Parsing module <Timer>.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\smg_interface.v" into library work
 Parsing module <smg_interface>.
+Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" into library work
+Parsing module <logic_layer>.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 38: Constant value is truncated to fit in <23> bits.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 112: Constant value is truncated to fit in <16> bits.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\key_module.v" into library work
 Parsing module <key_module>.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v" into library work
@@ -138,12 +142,17 @@ Elaborating module <smg_scan_module>.
 
 Elaborating module <key_module>.
 
+Elaborating module <logic_layer>.
+WARNING:HDLCompiler:189 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v" Line 49: Size mismatch in connection of port <air_condition>. Formal port size is 3-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v" Line 49: Assignment to air_condition ignored, since the identifier is never used
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <Module_Top>.
     Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v".
+INFO:Xst:3210 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v" line 42: Output port <air_condition> of the instance <U4> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <Module_Top> synthesized.
@@ -209,44 +218,17 @@ Unit <smg_interface> synthesized.
 Synthesizing Unit <smg_logic_module>.
     Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\smg_logic_module.v".
         T1MS = 16'b1100001101001111
-WARNING:Xst:647 - Input <Number_Sig<23:20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <key_value<3:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit register for signal <Num_output<23>>.
-    Found 1-bit register for signal <Num_output<22>>.
-    Found 1-bit register for signal <Num_output<21>>.
-    Found 1-bit register for signal <Num_output<20>>.
-    Found 1-bit register for signal <Num_output<19>>.
-    Found 1-bit register for signal <Num_output<18>>.
-    Found 1-bit register for signal <Num_output<17>>.
-    Found 1-bit register for signal <Num_output<16>>.
-    Found 1-bit register for signal <Num_output<15>>.
-    Found 1-bit register for signal <Num_output<14>>.
-    Found 1-bit register for signal <Num_output<13>>.
-    Found 1-bit register for signal <Num_output<12>>.
-    Found 1-bit register for signal <Num_output<11>>.
-    Found 1-bit register for signal <Num_output<10>>.
-    Found 1-bit register for signal <Num_output<9>>.
-    Found 1-bit register for signal <Num_output<8>>.
-    Found 1-bit register for signal <Num_output<7>>.
-    Found 1-bit register for signal <Num_output<6>>.
-    Found 1-bit register for signal <Num_output<5>>.
-    Found 1-bit register for signal <Num_output<4>>.
-    Found 1-bit register for signal <Num_output<3>>.
-    Found 1-bit register for signal <Num_output<2>>.
-    Found 1-bit register for signal <Num_output<1>>.
-    Found 1-bit register for signal <Num_output<0>>.
-    Found 3-bit register for signal <j>.
+WARNING:Xst:647 - Input <Num_output<3:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <key_value> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 4-bit register for signal <i>.
     Found 4-bit register for signal <rNumber>.
     Found 16-bit register for signal <C1>.
     Found 16-bit adder for signal <C1[15]_GND_4_o_add_1_OUT> created at line 24.
-    Found 3-bit adder for signal <j[2]_GND_4_o_add_4_OUT> created at line 41.
-    Found 4-bit adder for signal <i[3]_GND_4_o_add_22_OUT> created at line 72.
-    Found 24-bit 4-to-1 multiplexer for signal <_n0161> created at line 39.
+    Found 4-bit adder for signal <i[3]_GND_4_o_add_5_OUT> created at line 73.
     Summary:
-	inferred   3 Adder/Subtractor(s).
-	inferred  51 D-type flip-flop(s).
-	inferred  17 Multiplexer(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   8 Multiplexer(s).
 Unit <smg_logic_module> synthesized.
 
 Synthesizing Unit <smg_encode_module>.
@@ -293,35 +275,115 @@ Synthesizing Unit <key_module>.
 	inferred   1 Multiplexer(s).
 Unit <key_module> synthesized.
 
+Synthesizing Unit <logic_layer>.
+    Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v".
+        T200MS = 23'b00110001001011001111111
+    Found 1-bit register for signal <Num<23>>.
+    Found 1-bit register for signal <Num<22>>.
+    Found 1-bit register for signal <Num<21>>.
+    Found 1-bit register for signal <Num<20>>.
+    Found 1-bit register for signal <Num<19>>.
+    Found 1-bit register for signal <Num<18>>.
+    Found 1-bit register for signal <Num<17>>.
+    Found 1-bit register for signal <Num<16>>.
+    Found 1-bit register for signal <Num<15>>.
+    Found 1-bit register for signal <Num<14>>.
+    Found 1-bit register for signal <Num<13>>.
+    Found 1-bit register for signal <Num<12>>.
+    Found 1-bit register for signal <Num<11>>.
+    Found 1-bit register for signal <Num<10>>.
+    Found 1-bit register for signal <Num<9>>.
+    Found 1-bit register for signal <Num<8>>.
+    Found 1-bit register for signal <Num<7>>.
+    Found 1-bit register for signal <Num<6>>.
+    Found 1-bit register for signal <Num<5>>.
+    Found 1-bit register for signal <Num<4>>.
+    Found 1-bit register for signal <Num<3>>.
+    Found 1-bit register for signal <Num<2>>.
+    Found 1-bit register for signal <Num<1>>.
+    Found 1-bit register for signal <Num<0>>.
+    Found 1-bit register for signal <Num_temp<23>>.
+    Found 1-bit register for signal <Num_temp<22>>.
+    Found 1-bit register for signal <Num_temp<21>>.
+    Found 1-bit register for signal <Num_temp<20>>.
+    Found 1-bit register for signal <Num_temp<19>>.
+    Found 1-bit register for signal <Num_temp<18>>.
+    Found 1-bit register for signal <Num_temp<17>>.
+    Found 1-bit register for signal <Num_temp<16>>.
+    Found 1-bit register for signal <Num_temp<15>>.
+    Found 1-bit register for signal <Num_temp<14>>.
+    Found 1-bit register for signal <Num_temp<13>>.
+    Found 1-bit register for signal <Num_temp<12>>.
+    Found 1-bit register for signal <Num_temp<11>>.
+    Found 1-bit register for signal <Num_temp<10>>.
+    Found 1-bit register for signal <Num_temp<9>>.
+    Found 1-bit register for signal <Num_temp<8>>.
+    Found 1-bit register for signal <Num_temp<7>>.
+    Found 1-bit register for signal <Num_temp<6>>.
+    Found 1-bit register for signal <Num_temp<5>>.
+    Found 1-bit register for signal <Num_temp<4>>.
+    Found 1-bit register for signal <Num_temp<3>>.
+    Found 1-bit register for signal <Num_temp<2>>.
+    Found 1-bit register for signal <Num_temp<1>>.
+    Found 1-bit register for signal <Num_temp<0>>.
+    Found 3-bit register for signal <j>.
+    Found 24-bit register for signal <Num_purpose>.
+    Found 24-bit register for signal <Num_bias>.
+    Found 3-bit register for signal <air_condition_tmp>.
+    Found 4-bit subtractor for signal <Number_Sig[7]_Num_bias[7]_sub_29_OUT> created at line 132.
+    Found 4-bit subtractor for signal <Number_Sig[11]_Num_bias[11]_sub_30_OUT> created at line 133.
+    Found 4-bit subtractor for signal <Number_Sig[15]_Num_bias[15]_sub_31_OUT> created at line 134.
+    Found 4-bit subtractor for signal <Number_Sig[19]_Num_bias[19]_sub_32_OUT> created at line 135.
+    Found 4-bit subtractor for signal <Num_temp[7]_GND_10_o_sub_37_OUT> created at line 162.
+    Found 3-bit adder for signal <j[2]_GND_10_o_add_2_OUT> created at line 90.
+    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_6_OUT> created at line 106.
+    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_8_OUT> created at line 112.
+    Found 4-bit adder for signal <Num_temp[7]_GND_10_o_add_34_OUT> created at line 156.
+    Found 24-bit 4-to-1 multiplexer for signal <_n0269> created at line 87.
+    Found 24-bit 4-to-1 multiplexer for signal <_n0278> created at line 87.
+    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[11]_LessThan_8_o> created at line 107
+    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[15]_LessThan_10_o> created at line 113
+    Found 16-bit comparator greater for signal <Num_purpose[19]_Num[19]_LessThan_33_o> created at line 136
+    Found 4-bit comparator greater for signal <GND_10_o_Num_temp[7]_LessThan_36_o> created at line 157
+    Summary:
+	inferred   9 Adder/Subtractor(s).
+	inferred 102 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  75 Multiplexer(s).
+Unit <logic_layer> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 14
+# Adders/Subtractors                                   : 22
  16-bit adder                                          : 2
  20-bit adder                                          : 1
  23-bit adder                                          : 1
+ 24-bit adder                                          : 2
  3-bit adder                                           : 1
- 4-bit adder                                           : 9
-# Registers                                            : 62
- 1-bit register                                        : 48
+ 4-bit adder                                           : 10
+ 4-bit subtractor                                      : 5
+# Registers                                            : 89
+ 1-bit register                                        : 72
  16-bit register                                       : 2
  20-bit register                                       : 1
  23-bit register                                       : 1
- 24-bit register                                       : 1
- 3-bit register                                        : 1
+ 24-bit register                                       : 3
+ 3-bit register                                        : 2
  4-bit register                                        : 6
  6-bit register                                        : 1
  8-bit register                                        : 1
-# Comparators                                          : 6
- 4-bit comparator greater                              : 6
-# Multiplexers                                         : 83
- 1-bit 2-to-1 multiplexer                              : 48
+# Comparators                                          : 10
+ 16-bit comparator greater                             : 1
+ 4-bit comparator greater                              : 9
+# Multiplexers                                         : 149
+ 1-bit 2-to-1 multiplexer                              : 108
  16-bit 2-to-1 multiplexer                             : 2
  20-bit 2-to-1 multiplexer                             : 1
  23-bit 2-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 5
- 24-bit 4-to-1 multiplexer                             : 1
+ 24-bit 2-to-1 multiplexer                             : 10
+ 24-bit 4-to-1 multiplexer                             : 2
  24-bit 8-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 1
  4-bit 2-to-1 multiplexer                              : 17
@@ -334,16 +396,30 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:2677 - Node <key_scan_1> of sequential type is unconnected in block <U3>.
-WARNING:Xst:2677 - Node <key_scan_2> of sequential type is unconnected in block <U3>.
-WARNING:Xst:2677 - Node <key_scan_3> of sequential type is unconnected in block <U3>.
-WARNING:Xst:2677 - Node <key_scan_r_1> of sequential type is unconnected in block <U3>.
-WARNING:Xst:2677 - Node <key_scan_r_2> of sequential type is unconnected in block <U3>.
-WARNING:Xst:2677 - Node <key_scan_r_3> of sequential type is unconnected in block <U3>.
+WARNING:Xst:2677 - Node <rNumber_0> of sequential type is unconnected in block <U1>.
+WARNING:Xst:2677 - Node <rNumber_1> of sequential type is unconnected in block <U1>.
+WARNING:Xst:2677 - Node <rNumber_2> of sequential type is unconnected in block <U1>.
+WARNING:Xst:2677 - Node <rNumber_3> of sequential type is unconnected in block <U1>.
 WARNING:Xst:2677 - Node <rNumber_20> of sequential type is unconnected in block <U1>.
 WARNING:Xst:2677 - Node <rNumber_21> of sequential type is unconnected in block <U1>.
 WARNING:Xst:2677 - Node <rNumber_22> of sequential type is unconnected in block <U1>.
 WARNING:Xst:2677 - Node <rNumber_23> of sequential type is unconnected in block <U1>.
+WARNING:Xst:2677 - Node <Num_bias_0> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_1> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_2> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_3> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_20> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_21> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_22> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_bias_23> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_0> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_1> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_2> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_3> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_20> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_21> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_22> of sequential type is unconnected in block <U4>.
+WARNING:Xst:2677 - Node <Num_purpose_23> of sequential type is unconnected in block <U4>.
 
 Synthesizing (advanced) Unit <Timer>.
 The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
@@ -353,34 +429,56 @@ Synthesizing (advanced) Unit <key_module>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 Unit <key_module> synthesized (advanced).
 
+Synthesizing (advanced) Unit <logic_layer>.
+The following registers are absorbed into counter <j>: 1 register on signal <j>.
+Unit <logic_layer> synthesized (advanced).
+
 Synthesizing (advanced) Unit <smg_logic_module>.
 The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
-The following registers are absorbed into counter <j>: 1 register on signal <j>.
 Unit <smg_logic_module> synthesized (advanced).
 
 Synthesizing (advanced) Unit <smg_scan_module>.
 The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
 Unit <smg_scan_module> synthesized (advanced).
+WARNING:Xst:2677 - Node <Num_bias_0> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_1> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_2> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_3> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_20> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_21> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_22> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_bias_23> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_0> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_1> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_2> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_3> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_20> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_21> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_22> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_purpose_23> of sequential type is unconnected in block <logic_layer>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 9
- 4-bit adder                                           : 9
+# Adders/Subtractors                                   : 17
+ 24-bit adder                                          : 2
+ 4-bit adder                                           : 10
+ 4-bit subtractor                                      : 5
 # Counters                                             : 5
  16-bit up counter                                     : 2
  20-bit up counter                                     : 1
  23-bit up counter                                     : 1
  3-bit up counter                                      : 1
-# Registers                                            : 110
- Flip-Flops                                            : 110
-# Comparators                                          : 6
- 4-bit comparator greater                              : 6
-# Multiplexers                                         : 78
- 1-bit 2-to-1 multiplexer                              : 48
- 24-bit 2-to-1 multiplexer                             : 5
- 24-bit 4-to-1 multiplexer                             : 1
+# Registers                                            : 169
+ Flip-Flops                                            : 169
+# Comparators                                          : 10
+ 16-bit comparator greater                             : 1
+ 4-bit comparator greater                              : 9
+# Multiplexers                                         : 144
+ 1-bit 2-to-1 multiplexer                              : 108
+ 24-bit 2-to-1 multiplexer                             : 10
+ 24-bit 4-to-1 multiplexer                             : 2
  24-bit 8-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 17
  6-bit 2-to-1 multiplexer                              : 2
@@ -391,11 +489,20 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2677 - Node <Num_output_3> of sequential type is unconnected in block <smg_logic_module>.
-WARNING:Xst:2677 - Node <Num_output_2> of sequential type is unconnected in block <smg_logic_module>.
-WARNING:Xst:2677 - Node <Num_output_1> of sequential type is unconnected in block <smg_logic_module>.
-WARNING:Xst:2677 - Node <Num_output_0> of sequential type is unconnected in block <smg_logic_module>.
 WARNING:Xst:1710 - FF/Latch <rSMG_7> (without init value) has a constant value of 1 in block <smg_encode_module>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Num_22> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_3> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_1> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_0> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_23> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <air_condition_tmp_0> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <air_condition_tmp_1> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <air_condition_tmp_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <Num_temp_23> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_temp_22> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_temp_21> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:2677 - Node <Num_temp_20> of sequential type is unconnected in block <logic_layer>.
 
 Optimizing unit <Module_Top> ...
 WARNING:Xst:1710 - FF/Latch <U1/i_3> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
@@ -405,16 +512,18 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U2/U3/i_3> (without
 Optimizing unit <key_module> ...
 
 Optimizing unit <smg_logic_module> ...
-WARNING:Xst:1710 - FF/Latch <Num_output_22> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_output_23> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <j_2> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <i_3> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <Num_output_22> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <i_3> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_output_23> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <j_2> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <i_3> (without init value) has a constant value of 0 in block <smg_logic_module>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <smg_encode_module> ...
+
+Optimizing unit <logic_layer> ...
+WARNING:Xst:1710 - FF/Latch <Num_3> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_1> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_0> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <j_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <j_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <U1/rNumber_23> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U1/rNumber_22> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U1/rNumber_21> of sequential type is unconnected in block <Module_Top>.
@@ -423,12 +532,13 @@ WARNING:Xst:2677 - Node <U1/rNumber_3> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <U1/rNumber_2> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U1/rNumber_1> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U1/rNumber_0> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_r_3> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_r_2> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_r_1> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_3> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_2> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:2677 - Node <U3/key_scan_1> of sequential type is unconnected in block <Module_Top>.
+WARNING:Xst:1710 - FF/Latch <U4/Num_temp_16> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_17> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_18> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_18> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_17> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <U1/C1_0> in Unit <Module_Top> is equivalent to the following FF/Latch, which will be removed : <U2/U3/C1_0> 
 INFO:Xst:2261 - The FF/Latch <U1/C1_1> in Unit <Module_Top> is equivalent to the following FF/Latch, which will be removed : <U2/U3/C1_1> 
 INFO:Xst:2261 - The FF/Latch <U1/C1_2> in Unit <Module_Top> is equivalent to the following FF/Latch, which will be removed : <U2/U3/C1_2> 
@@ -436,7 +546,7 @@ INFO:Xst:2261 - The FF/Latch <U1/C1_3> in Unit <Module_Top> is equivalent to the
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Module_Top, actual ratio is 6.
+Found area constraint ratio of 100 (+ 5) on block Module_Top, actual ratio is 8.
 
 Final Macro Processing ...
 
@@ -444,8 +554,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 159
- Flip-Flops                                            : 159
+# Registers                                            : 206
+ Flip-Flops                                            : 206
 
 =========================================================================
 
@@ -468,28 +578,29 @@ Top Level Output File Name         : Module_Top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 457
+# BELS                             : 611
 #      GND                         : 1
-#      INV                         : 8
-#      LUT1                        : 71
-#      LUT2                        : 61
-#      LUT3                        : 37
-#      LUT4                        : 18
-#      LUT5                        : 25
-#      LUT6                        : 90
-#      MUXCY                       : 71
+#      INV                         : 10
+#      LUT1                        : 81
+#      LUT2                        : 78
+#      LUT3                        : 54
+#      LUT4                        : 58
+#      LUT5                        : 33
+#      LUT6                        : 118
+#      MUXCY                       : 91
 #      MUXF7                       : 3
 #      VCC                         : 1
-#      XORCY                       : 71
-# FlipFlops/Latches                : 159
-#      FD                          : 2
-#      FDC                         : 116
-#      FDCE                        : 33
-#      FDPE                        : 8
+#      XORCY                       : 83
+# FlipFlops/Latches                : 206
+#      FD                          : 4
+#      FDC                         : 128
+#      FDCE                        : 40
+#      FDE                         : 20
+#      FDPE                        : 14
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 16
-#      IBUF                        : 2
+# IO Buffers                       : 19
+#      IBUF                        : 5
 #      OBUF                        : 14
 
 Device utilization summary:
@@ -499,20 +610,20 @@ Selected Device : 6slx9ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             159  out of  11440     1%  
- Number of Slice LUTs:                  310  out of   5720     5%  
-    Number used as Logic:               310  out of   5720     5%  
+ Number of Slice Registers:             206  out of  11440     1%  
+ Number of Slice LUTs:                  432  out of   5720     7%  
+    Number used as Logic:               432  out of   5720     7%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    325
-   Number with an unused Flip Flop:     166  out of    325    51%  
-   Number with an unused LUT:            15  out of    325     4%  
-   Number of fully used LUT-FF pairs:   144  out of    325    44%  
-   Number of unique control sets:         9
+ Number of LUT Flip Flop pairs used:    456
+   Number with an unused Flip Flop:     250  out of    456    54%  
+   Number with an unused LUT:            24  out of    456     5%  
+   Number of fully used LUT-FF pairs:   182  out of    456    39%  
+   Number of unique control sets:        12
 
 IO Utilization: 
  Number of IOs:                          20
- Number of bonded IOBs:                  17  out of    186     9%  
+ Number of bonded IOBs:                  20  out of    186    10%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -538,7 +649,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 159   |
+CLK                                | BUFGP                  | 206   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -550,7 +661,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 5.040ns (Maximum Frequency: 198.413MHz)
-   Minimum input arrival time before clock: 5.136ns
+   Minimum input arrival time before clock: 5.672ns
    Maximum output required time after clock: 4.162ns
    Maximum combinational path delay: No path found
 
@@ -561,7 +672,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 5.040ns (frequency: 198.413MHz)
-  Total number of paths / destination ports: 3405 / 200
+  Total number of paths / destination ports: 5109 / 276
 -------------------------------------------------------------------------
 Delay:               5.040ns (Levels of Logic = 4)
   Source:            U1/C1_14 (FF)
@@ -585,9 +696,9 @@ Delay:               5.040ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 159 / 158
+  Total number of paths / destination ports: 206 / 206
 -------------------------------------------------------------------------
-Offset:              5.136ns (Levels of Logic = 2)
+Offset:              5.672ns (Levels of Logic = 2)
   Source:            RSTn (PAD)
   Destination:       U1/rNumber_19 (FF)
   Destination Clock: CLK rising
@@ -596,12 +707,12 @@ Offset:              5.136ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.328   0.725  RSTn_IBUF (RSTn_IBUF)
-     INV:I->O            157   0.255   2.369  RSTn_inv1_INV_0 (RSTn_inv)
+     IBUF:I->O            18   1.328   1.234  RSTn_IBUF (RSTn_IBUF)
+     INV:I->O            182   0.255   2.396  RSTn_inv1_INV_0 (RSTn_inv)
      FDC:CLR                   0.459          U1/C1_0
     ----------------------------------------
-    Total                      5.136ns (2.042ns logic, 3.094ns route)
-                                       (39.8% logic, 60.2% route)
+    Total                      5.672ns (2.042ns logic, 3.630ns route)
+                                       (36.0% logic, 64.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
@@ -638,14 +749,14 @@ CLK            |    5.040|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.43 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.13 secs
  
 --> 
 
 Total memory usage is 4539852 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   42 (   0 filtered)
-Number of infos    :    4 (   0 filtered)
+Number of warnings :   86 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

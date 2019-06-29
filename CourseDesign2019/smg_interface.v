@@ -1,9 +1,9 @@
-module smg_interface
+ module smg_interface
 (
     input CLK,
 	 input RSTn,
-	 input [23:0]Number_Sig,
 	 input [3:0]key_value,
+	 input [23:0]Num_output,
 	 output [7:0]SMG_Data,
 	 output [5:0]Scan_Sig
 );
@@ -17,7 +17,7 @@ module smg_interface
 	    .CLK( CLK ),
 		 .RSTn( RSTn ),
 		 .key_value(key_value),
-		 .Number_Sig( Number_Sig ),    // input - from top
+		 .Num_output( Num_output ),    // input - from top
 		 .Number_Data( Number_Data )   // output - to U2
 	 );
 	 

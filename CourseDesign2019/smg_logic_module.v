@@ -2,7 +2,7 @@ module smg_logic_module
 (
     input CLK,
 	input RSTn,
-	input [23:0]Number_Sig,
+	input [23:0]Num_output,
     input [3:0]key_value,
 	output [3:0]Number_Data
 );
@@ -27,7 +27,7 @@ module smg_logic_module
 	 
 
 	/*************Logical Section***************/
-    reg [23:0]Num_output;
+ /*   reg [23:0]Num_output;
     reg [2:0]j;
     always @ ( posedge CLK or negedge RSTn )
         if( !RSTn )
@@ -43,23 +43,24 @@ module smg_logic_module
 
 				1:
 				if(key_value[0]) j <= j + 1'b1;
-				else Num_output[23:20] <= 4'b0001;
+				else begin
+					Num_output[23:20] <= 4'b0001;
 
 				2:
 				if(key_value[0]) j <= j + 1'b1;
 				else 
 				begin
-					Num_output<=Number_Sig;
 					Num_output[23:20] <= 4'b0010;
 				end
 				3:
 				j <= 1'b0;
 			endcase
-
+*/
 /******************数码管写�*******************/
 	 reg [3:0]i;
 	 reg [3:0]rNumber;
 	 always @ ( posedge CLK or negedge RSTn )
+	 begin
 	     if( !RSTn )
 		      begin
 		          i <= 4'd0;
@@ -70,11 +71,11 @@ module smg_logic_module
 				
 				    0:
 					 if( C1 == T1MS ) i <= i + 1'b1;
-					 else rNumber <= 1'd0;          //十万位数码管显示           
+					 else rNumber <= Num_output[23:20];          //十万位数码管显示           
 	
 					 1:
 					 if( C1 == T1MS ) i <= i + 1'b1;
-					 else rNumber <= Num_output[23:20];          //万位数码管显�
+					 else rNumber <= 1'd0;          //万位数码管显�
 					 
 					 2:
 					 if( C1 == T1MS ) i <= i + 1'b1;
@@ -93,7 +94,7 @@ module smg_logic_module
 					 else rNumber <= Num_output[7:4];            //低位数码管显�
 				
 				endcase
-				
+	end		
     /******************************************/ 
 	 
 	 assign Number_Data = rNumber;

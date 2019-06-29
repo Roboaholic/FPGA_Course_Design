@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Jun 27 21:04:46 2019
+// Written by: Map P.20131013 on Sat Jun 29 08:54:51 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -50,26 +50,37 @@ TIMEGRP sys_clk_pin = BEL "U1/rNumber_19" BEL "U1/rNumber_18" BEL
         BEL "U3/count_12" BEL "U3/count_11" BEL "U3/count_10" BEL "U3/count_9"
         BEL "U3/count_8" BEL "U3/count_7" BEL "U3/count_6" BEL "U3/count_5"
         BEL "U3/count_4" BEL "U3/count_3" BEL "U3/count_2" BEL "U3/count_1"
-        BEL "U3/count_0" BEL "U3/key_scan_r_0" BEL "U2/U1/j_1" BEL "U2/U1/j_0"
-        BEL "U2/U1/C1_15" BEL "U2/U1/C1_14" BEL "U2/U1/C1_13" BEL
-        "U2/U1/C1_12" BEL "U2/U1/C1_11" BEL "U2/U1/C1_10" BEL "U2/U1/C1_9" BEL
-        "U2/U1/C1_8" BEL "U2/U1/C1_7" BEL "U2/U1/C1_6" BEL "U2/U1/C1_5" BEL
-        "U2/U1/C1_4" BEL "U2/U1/C1_3" BEL "U2/U1/C1_2" BEL "U2/U1/C1_1" BEL
-        "U2/U1/C1_0" BEL "U2/U1/rNumber_3" BEL "U2/U1/rNumber_2" BEL
-        "U2/U1/rNumber_1" BEL "U2/U1/rNumber_0" BEL "U2/U1/i_2" BEL
-        "U2/U1/i_1" BEL "U2/U1/i_0" BEL "U2/U1/Num_output_5" BEL
-        "U2/U1/Num_output_6" BEL "U2/U1/Num_output_4" BEL "U2/U1/Num_output_8"
-        BEL "U2/U1/Num_output_9" BEL "U2/U1/Num_output_7" BEL
-        "U2/U1/Num_output_11" BEL "U2/U1/Num_output_12" BEL
-        "U2/U1/Num_output_10" BEL "U2/U1/Num_output_13" BEL
-        "U2/U1/Num_output_14" BEL "U2/U1/Num_output_16" BEL
-        "U2/U1/Num_output_17" BEL "U2/U1/Num_output_15" BEL
-        "U2/U1/Num_output_19" BEL "U2/U1/Num_output_20" BEL
-        "U2/U1/Num_output_18" BEL "U2/U1/Num_output_21" BEL "U2/U2/rSMG_6" BEL
-        "U2/U2/rSMG_5" BEL "U2/U2/rSMG_4" BEL "U2/U2/rSMG_3" BEL
-        "U2/U2/rSMG_2" BEL "U2/U2/rSMG_1" BEL "U2/U2/rSMG_0" BEL
-        "U3/key_scan_0" BEL "U1/i_2" BEL "U1/i_1" BEL "U1/i_0" BEL
-        "CLK_BUFGP/BUFG";
+        BEL "U3/count_0" BEL "U3/key_scan_r_3" BEL "U3/key_scan_r_2" BEL
+        "U3/key_scan_r_1" BEL "U3/key_scan_r_0" BEL "U3/key_scan_3" BEL
+        "U3/key_scan_2" BEL "U3/key_scan_1" BEL "U3/key_scan_0" BEL
+        "U2/U1/C1_15" BEL "U2/U1/C1_14" BEL "U2/U1/C1_13" BEL "U2/U1/C1_12"
+        BEL "U2/U1/C1_11" BEL "U2/U1/C1_10" BEL "U2/U1/C1_9" BEL "U2/U1/C1_8"
+        BEL "U2/U1/C1_7" BEL "U2/U1/C1_6" BEL "U2/U1/C1_5" BEL "U2/U1/C1_4"
+        BEL "U2/U1/C1_3" BEL "U2/U1/C1_2" BEL "U2/U1/C1_1" BEL "U2/U1/C1_0"
+        BEL "U2/U1/rNumber_3" BEL "U2/U1/rNumber_2" BEL "U2/U1/rNumber_1" BEL
+        "U2/U1/rNumber_0" BEL "U2/U1/i_2" BEL "U2/U1/i_1" BEL "U2/U1/i_0" BEL
+        "U2/U2/rSMG_6" BEL "U2/U2/rSMG_5" BEL "U2/U2/rSMG_4" BEL
+        "U2/U2/rSMG_3" BEL "U2/U2/rSMG_2" BEL "U2/U2/rSMG_1" BEL
+        "U2/U2/rSMG_0" BEL "U4/j_1" BEL "U4/j_0" BEL "U4/Num_purpose_16" BEL
+        "U4/Num_purpose_15" BEL "U4/Num_purpose_14" BEL "U4/Num_purpose_13"
+        BEL "U4/Num_purpose_12" BEL "U4/Num_purpose_11" BEL
+        "U4/Num_purpose_10" BEL "U4/Num_purpose_9" BEL "U4/Num_purpose_8" BEL
+        "U4/Num_purpose_7" BEL "U4/Num_purpose_6" BEL "U4/Num_purpose_5" BEL
+        "U4/Num_purpose_4" BEL "U4/Num_temp_4" BEL "U4/Num_temp_5" BEL
+        "U4/Num_temp_6" BEL "U4/Num_temp_7" BEL "U4/Num_temp_8" BEL
+        "U4/Num_temp_9" BEL "U4/Num_temp_10" BEL "U4/Num_temp_12" BEL
+        "U4/Num_temp_13" BEL "U4/Num_temp_11" BEL "U4/Num_temp_14" BEL
+        "U4/Num_temp_15" BEL "U4/Num_5" BEL "U4/Num_6" BEL "U4/Num_4" BEL
+        "U4/Num_7" BEL "U4/Num_8" BEL "U4/Num_9" BEL "U4/Num_10" BEL
+        "U4/Num_11" BEL "U4/Num_12" BEL "U4/Num_14" BEL "U4/Num_15" BEL
+        "U4/Num_13" BEL "U4/Num_16" BEL "U4/Num_17" BEL "U4/Num_18" BEL
+        "U4/Num_19" BEL "U4/Num_20" BEL "U4/Num_21" BEL "U4/Num_bias_19" BEL
+        "U4/Num_bias_18" BEL "U4/Num_bias_17" BEL "U4/Num_bias_16" BEL
+        "U4/Num_bias_15" BEL "U4/Num_bias_14" BEL "U4/Num_bias_13" BEL
+        "U4/Num_bias_12" BEL "U4/Num_bias_11" BEL "U4/Num_bias_10" BEL
+        "U4/Num_bias_9" BEL "U4/Num_bias_8" BEL "U4/Num_bias_7" BEL
+        "U4/Num_bias_6" BEL "U4/Num_bias_5" BEL "U4/Num_bias_4" BEL "U1/i_2"
+        BEL "U1/i_1" BEL "U1/i_0" BEL "CLK_BUFGP/BUFG";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
 SCHEMATIC END;
 
