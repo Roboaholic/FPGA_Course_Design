@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
-// Description: only changmeng works while others are having fun，plz give them 60 scores，ESPECIALLY ZHAO WEN HAI
+// Description: ZHAO WEN HAI did nothing! plz give him 59 scores!!!!
 //
 // Dependencies: 
 //
@@ -24,7 +24,8 @@ module logic_layer(
 		input [3:0]key_value,
 	   input [23:0]Number_Sig,
 		input [23:0]Number_Sig2,
-		output beep,
+		output sing_flag,
+		output beep_flag,
 		output [3:0]led,
 		//output [2:0]air_condition,
 		output [23:0]Num_output,
@@ -37,15 +38,16 @@ module logic_layer(
 	 reg [23:0]Num_purpose;  //正常数格式
 	 reg [23:0]Num_bias;    
 	 reg [23:0]Num_warning;
-	 reg [3:0]air_condition_tmp;
+	 reg [7:0]air_condition_tmp;
 	 reg zero_flag;
 	 reg zero_flag2;
 	 reg [28:0]cnt;
 	 reg cmp_flag;
 	 reg [1:0]mode_flag;//如果是1代表定时睡眠模式，如果等于2代表定时关机模式
-	 reg [1:0]beep_flag;
+	 reg [1:0]beep_allow_flag;
 	 reg beep_signal;
 	 reg [3:0]led_value;
+	 reg sing_signal;
 	/******************************************/    
 	 
 	parameter TMS = 28'd99_999_999;  
@@ -96,9 +98,11 @@ endtask
 				 Num_temp <= 23'd0;
 				 Num_purpose<=23'd99999;  //default maxmum value
 				 Num_warning<=12'b0011_0000_0000;
-				 beep_signal<=1'b1;
-				 beep_flag<=1'b1;//允许蜂鸣器响
+				 beep_signal<=1'b0;
+				 beep_allow_flag<=1'b1;//允许蜂鸣器响
 				 zero_flag2<=1'b0;
+				 Num[19:4] <= 16'b1011_1011_1011_1011;
+				 sing_signal<=0;
 			end
 			else
 			begin
@@ -111,6 +115,7 @@ endtask
 				begin
 					Num[19:4] <= 16'b1011_1011_1011_1011;  
 					mode_flag<=1'b0;
+					Num[23:20] <= 1'b0; 
 
 				end
 				
@@ -140,13 +145,13 @@ endtask
 						Num_bias[11:8] <= Number_Sig[11:8];
 						Num_bias[15:12] <= Number_Sig[15:12];
 						Num_bias[19:16] <= Number_Sig[19:16];
-						beep_flag <= 1'b1;  //重新设定时间后，beep_flag置1，允许蜂鸣器
 						zero_flag <= 1'b1;
 						mode_flag <= 1'd1;
 					end
 					
 					Num <= Num_temp;
 					Num[23:20] <= 4'b0001;
+					Num[19:16] <= 4'b1100;
 				end
 				
 				
@@ -176,13 +181,13 @@ endtask
 						Num_bias[11:8] <= Number_Sig[11:8];
 						Num_bias[15:12] <= Number_Sig[15:12];
 						Num_bias[19:16] <= Number_Sig[19:16];
-						beep_flag <= 1'b1;  //重新设定时间后，beep_flag置1，允许蜂鸣器
 						zero_flag <= 1'b1;
 						mode_flag <= 1'd2;
 					end
 					
 					Num <= Num_temp;
 					Num[23:20] <= 4'b0010;
+					Num[19:16] <= 4'b1100;
 				end
 
 				3:                    //正计时模式
@@ -212,14 +217,14 @@ endtask
 					if(Number_Sig[19:4]>Num_warning[19:4])
 					begin
 						//Num[19:4]<=16'b1000_1000_1000_1000;
-						if(beep_flag==1'b1) 
+						if(beep_allow_flag==1'b1) 
 						begin
-							//beep_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
+							//beep_allow_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
 							beep_signal<=1'b0;//蜂鸣器响
 							Num[19:4]<=16'b1001_1001_1001_1001;
 							if(cnt>TMS) 
 							begin
-								beep_flag<=1'b0;
+								beep_allow_flag<=1'b0;
 								beep_signal<=1'b1;
 							end
 							cnt <= cnt + 1'b1;
@@ -234,16 +239,16 @@ endtask
 				begin
 					if(key_value[1])   //二号按键，空气质量+
 					begin 
-						Num_temp[7:4] <= Num_temp[7:4] + 1'b1;
-						if(Num_temp[7:4]>=3'd4) Num_temp[7:4] <= 1'b0;
-						air_condition_tmp[3:0] <= Num_temp[7:4];
+						Num_temp[11:8] <= Num_temp[11:8] + 4'd1;
+						if(Num_temp[11:8]>4'd8) Num_temp[11:8] <= 1'b0;
+						air_condition_tmp[7:4] <= Num_temp[11:8];
 				
 					end
 					
 					else if(key_value[2])   //三号按键，空气质量
 					begin
-						Num_temp[7:4] <= Num_temp[7:4] - 1'b1;
-						if(Num_temp[7:4]==4'b1111) Num_temp[7:4] <= 3'd4;
+						Num_temp[7:4] <= Num_temp[7:4] + 4'd1;
+						if(Num_temp[7:4]>4'd8) Num_temp[7:4] <= 1'b0;
 						air_condition_tmp[3:0] <= Num_temp[7:4];
 				
 					end
@@ -255,24 +260,26 @@ endtask
 					*/
 				Num<=Num_temp;
 				Num[23:20] <= 3'd4;
+				Num[19:12] <= 8'b1100_1100;
 				end
+				
 				5: //手动模式
 				if(key_value[0]) j <= j+ 1'b1;
 				else 
 				begin
 					if(key_value[2])   
 					begin 
-						Num_temp[7:4] <= Num_temp[7:4] + 1'b1;
-						if(Num_temp[7:4]>=3'd4) Num_temp[7:4] <= 1'b0;
-						air_condition_tmp[3:0] <= Num_temp[7:4];
+						Num_temp[7:4] <= Num_temp[7:4] + 2'd2;
+						if(Num_temp[7:4]>=4'd8) Num_temp[7:4] <= 1'b0;
+						air_condition_tmp[7:4] <= Num_temp[7:4];
 				
 					end
 					
 					else if(key_value[1])   //三号按键，空气质量
 					begin
-						Num_temp[7:4] <= Num_temp[7:4] - 1'b1;
-						if(Num_temp[7:4]==4'b1111) Num_temp[7:4] <= 3'd4;
-						air_condition_tmp[3:0] <= Num_temp[7:4];
+						Num_temp[7:4] <= Num_temp[7:4] - 2'd2;
+						if(Num_temp[7:4]<=4'b1) Num_temp[7:4] <= 4'd9;
+						air_condition_tmp[7:4] <= Num_temp[7:4];
 					end
 				/*
 					else if(key_value[3])   //四号按键，确定
@@ -285,9 +292,14 @@ endtask
 				end
 				
 				6://显示运行时间
-				if(key_value[0]) j <= 1'b0;
+				if(key_value[0]) 
+				begin
+				j <= 1'b0;
+				sing_signal<=0;
+				end
 				else
 				begin
+					sing_signal<=1;
 					Num[19:4]<=Number_Sig2[19:4];
 					Num[23:20]<=4'd6;
 				end
@@ -296,15 +308,15 @@ endtask
 			if(Number_Sig2[19:4]>Num_warning[19:4])
 					begin
 						//Num[19:4]<=16'b1000_1000_1000_1000;
-						if(beep_flag==1'b1) 
+						if(beep_allow_flag==1'b1) 
 						begin
-							//beep_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
-							beep_signal<=1'b0;//蜂鸣器响
-							Num[19:4]<=16'b1001_1001_1001_1001;
+							//beep_allow_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
+							beep_signal<=1'b1;//蜂鸣器响
+							Num[19:4]<=16'b1010_1010_1010_1010;
 							if(cnt>TMS) 
 							begin
-								beep_flag<=1'b0;
-								beep_signal<=1'b1;
+								beep_allow_flag<=1'b0;
+								beep_signal<=1'b0;
 							end
 							cnt <= cnt + 1'b1;
 						end
@@ -315,12 +327,17 @@ endtask
 
 	always @ ( posedge CLK )
 	begin
-				case(air_condition_tmp)
+				case(air_condition_tmp[7:4])
 					0: led_value[3:0]=4'b0000;
-					1: led_value[3:0]=4'b0001;
-					2: led_value[3:0]=4'b0011;
-					3: led_value[3:0]=4'b0111;
-					4: led_value[3:0]=4'b1111;
+					1: led_value[3:0]=4'b0000;
+					2: led_value[3:0]=4'b0001;
+					3: led_value[3:0]=4'b0001;
+					4: led_value[3:0]=4'b0011;
+					5: led_value[3:0]=4'b0011;
+					6: led_value[3:0]=4'b0111;
+					7: led_value[3:0]=4'b0111;
+					8: led_value[3:0]=4'b1111;
+					9: led_value[3:0]=4'b1111;
 				endcase
 	end
 
@@ -328,8 +345,9 @@ endtask
 	assign zero_signal2 = zero_flag2;
 	assign Num_output = Num;
 	//assign air_condition = air_condition_tmp;
-	assign beep = beep_signal;
+	assign beep_flag = beep_signal;
 	assign led = led_value;
+	assign sing_flag = sing_signal;
 	
 endmodule
 

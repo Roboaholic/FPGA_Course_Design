@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Reading design: Module_Top.prj
 
@@ -115,14 +115,20 @@ Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\Course
 Parsing module <Timer>.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\smg_interface.v" into library work
 Parsing module <smg_interface>.
+Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\sing_control.v" into library work
+Parsing module <sing_control>.
+Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\PWM_module.v" into library work
+Parsing module <PWM_module>.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" into library work
 Parsing module <logic_layer>.
-WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 132: Constant value is truncated to fit in <16> bits.
-WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 168: Constant value is truncated to fit in <16> bits.
-WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 181: Constant value is truncated to fit in <1> bits.
-WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 209: Constant value is truncated to fit in <1> bits.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 137: Constant value is truncated to fit in <16> bits.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 173: Constant value is truncated to fit in <16> bits.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 185: Constant value is truncated to fit in <1> bits.
+WARNING:HDLCompiler:568 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 214: Constant value is truncated to fit in <1> bits.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\key_module.v" into library work
 Parsing module <key_module>.
+Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\buzzer_module.v" into library work
+Parsing module <buzzer_module>.
 Analyzing Verilog file "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\Module_Top.v" into library work
 Parsing module <Module_Top>.
 
@@ -145,7 +151,14 @@ Elaborating module <smg_scan_module>.
 Elaborating module <key_module>.
 
 Elaborating module <logic_layer>.
-WARNING:HDLCompiler:1127 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 90: Assignment to cmp_flag ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\logic_layer.v" Line 92: Assignment to cmp_flag ignored, since the identifier is never used
+
+Elaborating module <PWM_module>.
+WARNING:HDLCompiler:1127 - "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\PWM_module.v" Line 56: Assignment to i ignored, since the identifier is never used
+
+Elaborating module <sing_control>.
+
+Elaborating module <buzzer_module>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -288,22 +301,10 @@ WARNING:Xst:647 - Input <Number_Sig2<23:20>> is never used. This port will be pr
     Found 1-bit register for signal <Num<22>>.
     Found 1-bit register for signal <Num<21>>.
     Found 1-bit register for signal <Num<20>>.
-    Found 1-bit register for signal <Num<19>>.
     Found 1-bit register for signal <Num<18>>.
-    Found 1-bit register for signal <Num<17>>.
-    Found 1-bit register for signal <Num<16>>.
-    Found 1-bit register for signal <Num<15>>.
     Found 1-bit register for signal <Num<14>>.
-    Found 1-bit register for signal <Num<13>>.
-    Found 1-bit register for signal <Num<12>>.
-    Found 1-bit register for signal <Num<11>>.
     Found 1-bit register for signal <Num<10>>.
-    Found 1-bit register for signal <Num<9>>.
-    Found 1-bit register for signal <Num<8>>.
-    Found 1-bit register for signal <Num<7>>.
     Found 1-bit register for signal <Num<6>>.
-    Found 1-bit register for signal <Num<5>>.
-    Found 1-bit register for signal <Num<4>>.
     Found 1-bit register for signal <Num<3>>.
     Found 1-bit register for signal <Num<2>>.
     Found 1-bit register for signal <Num<1>>.
@@ -342,25 +343,41 @@ WARNING:Xst:647 - Input <Number_Sig2<23:20>> is never used. This port will be pr
     Found 1-bit register for signal <Num_purpose<8>>.
     Found 1-bit register for signal <Num_purpose<6>>.
     Found 1-bit register for signal <Num_purpose<5>>.
+    Found 1-bit register for signal <beep_signal>.
+    Found 1-bit register for signal <sing_signal>.
     Found 3-bit register for signal <j>.
-    Found 2-bit register for signal <beep_flag>.
+    Found 2-bit register for signal <beep_allow_flag>.
+    Found 1-bit register for signal <Num<17>>.
+    Found 1-bit register for signal <Num<16>>.
+    Found 1-bit register for signal <Num<15>>.
+    Found 1-bit register for signal <Num<13>>.
+    Found 1-bit register for signal <Num<12>>.
+    Found 1-bit register for signal <Num<11>>.
+    Found 1-bit register for signal <Num<9>>.
+    Found 1-bit register for signal <Num<8>>.
+    Found 1-bit register for signal <Num<7>>.
+    Found 1-bit register for signal <Num<5>>.
+    Found 1-bit register for signal <Num<4>>.
+    Found 1-bit register for signal <Num_purpose<16>>.
     Found 1-bit register for signal <Num_purpose<15>>.
     Found 1-bit register for signal <Num_purpose<10>>.
     Found 1-bit register for signal <Num_purpose<9>>.
     Found 1-bit register for signal <Num_purpose<7>>.
     Found 1-bit register for signal <Num_purpose<4>>.
-    Found 1-bit register for signal <beep_signal>.
-    Found 1-bit register for signal <Num_purpose<16>>.
-    Found 4-bit register for signal <air_condition_tmp>.
+    Found 1-bit register for signal <Num<19>>.
+    Found 1-bit register for signal <air_condition_tmp<7>>.
+    Found 1-bit register for signal <air_condition_tmp<6>>.
+    Found 1-bit register for signal <air_condition_tmp<5>>.
+    Found 1-bit register for signal <air_condition_tmp<4>>.
     Found 29-bit register for signal <cnt>.
     Found 1-bit register for signal <zero_flag>.
     Found 2-bit register for signal <mode_flag>.
     Found 4-bit register for signal <led_value>.
-    Found finite state machine <FSM_0> for signal <beep_flag>.
+    Found finite state machine <FSM_0> for signal <beep_allow_flag>.
     -----------------------------------------------------------------------
     | States             | 2                                              |
-    | Transitions        | 9                                              |
-    | Inputs             | 7                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 2                                              |
     | Outputs            | 1                                              |
     | Clock              | CLK (rising_edge)                              |
     | Reset              | RSTn (negative)                                |
@@ -369,67 +386,131 @@ WARNING:Xst:647 - Input <Number_Sig2<23:20>> is never used. This port will be pr
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 4-bit subtractor for signal <Num_temp[7]_GND_10_o_sub_63_OUT> created at line 273.
-    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_24_OUT> created at line 163.
-    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_26_OUT> created at line 168.
-    Found 3-bit adder for signal <j[2]_GND_10_o_add_59_OUT> created at line 260.
-    Found 4-bit adder for signal <Num_temp[7]_GND_10_o_add_60_OUT> created at line 265.
-    Found 29-bit adder for signal <cnt[28]_GND_10_o_add_114_OUT> created at line 309.
-    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[11]_LessThan_26_o> created at line 164
-    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[15]_LessThan_28_o> created at line 169
-    Found 16-bit comparator greater for signal <Num_purpose[19]_Number_Sig[19]_LessThan_43_o> created at line 206
-    Found 4-bit comparator lessequal for signal <n0185> created at line 266
-    Found 16-bit comparator greater for signal <Num_warning[19]_Number_Sig2[19]_LessThan_111_o> created at line 296
-    Found 29-bit comparator greater for signal <GND_10_o_cnt[28]_LessThan_113_o> created at line 304
+    Found 4-bit subtractor for signal <Num_temp[7]_GND_10_o_sub_54_OUT> created at line 280.
+    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_20_OUT> created at line 168.
+    Found 24-bit adder for signal <Num_temp[23]_GND_10_o_add_22_OUT> created at line 173.
+    Found 4-bit adder for signal <Num_temp[11]_GND_10_o_add_42_OUT> created at line 242.
+    Found 4-bit adder for signal <Num_temp[7]_GND_10_o_add_44_OUT> created at line 250.
+    Found 3-bit adder for signal <j[2]_GND_10_o_add_50_OUT> created at line 267.
+    Found 4-bit adder for signal <Num_temp[7]_GND_10_o_add_51_OUT> created at line 272.
+    Found 29-bit adder for signal <cnt[28]_GND_10_o_add_102_OUT> created at line 321.
+    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[15]_LessThan_24_o> created at line 174
+    Found 16-bit comparator greater for signal <Num_purpose[19]_Number_Sig[19]_LessThan_35_o> created at line 211
+    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[11]_LessThan_44_o> created at line 243
+    Found 4-bit comparator greater for signal <PWR_8_o_Num_temp[7]_LessThan_46_o> created at line 251
+    Found 4-bit comparator lessequal for signal <n0204> created at line 273
+    Found 4-bit comparator lessequal for signal <n0211> created at line 281
+    Found 16-bit comparator greater for signal <Num_warning[19]_Number_Sig2[19]_LessThan_99_o> created at line 308
+    Found 29-bit comparator greater for signal <GND_10_o_cnt[28]_LessThan_101_o> created at line 316
     Summary:
-	inferred   6 Adder/Subtractor(s).
+	inferred   8 Adder/Subtractor(s).
 	inferred 107 D-type flip-flop(s).
-	inferred   6 Comparator(s).
-	inferred 456 Multiplexer(s).
+	inferred   8 Comparator(s).
+	inferred 443 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <logic_layer> synthesized.
+
+Synthesizing Unit <PWM_module>.
+    Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\PWM_module.v".
+        T10MS = 23'b00000000000000111110011
+        T20MS = 23'b00000000000001111100111
+        T30MS = 23'b00000000000010111011011
+        T40MS = 23'b00000000000011111001111
+        T50MS = 23'b00000000000100111000011
+        T60MS = 23'b00000000000101110110111
+        T70MS = 23'b00000000000110110101011
+        T80MS = 23'b00000000000111110011111
+        T90MS = 23'b00000000001000110010011
+        T100MS = 23'b00000000001001110000111
+WARNING:Xst:647 - Input <sing_flag> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 23-bit register for signal <C1>.
+    Found 1-bit register for signal <beep_value>.
+    Found 23-bit adder for signal <C1[22]_GND_45_o_add_1_OUT> created at line 53.
+    Found 23-bit comparator lessequal for signal <n0005> created at line 67
+    Found 23-bit comparator lessequal for signal <n0007> created at line 70
+    Found 23-bit comparator lessequal for signal <n0009> created at line 73
+    Found 23-bit comparator lessequal for signal <n0011> created at line 76
+    Found 23-bit comparator lessequal for signal <n0013> created at line 79
+    Found 23-bit comparator lessequal for signal <n0015> created at line 82
+    Found 23-bit comparator lessequal for signal <n0017> created at line 85
+    Found 23-bit comparator lessequal for signal <n0019> created at line 88
+    Found 23-bit comparator lessequal for signal <n0021> created at line 91
+    Found 23-bit comparator lessequal for signal <n0023> created at line 94
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred  10 Comparator(s).
+	inferred  12 Multiplexer(s).
+Unit <PWM_module> synthesized.
+
+Synthesizing Unit <sing_control>.
+    Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\sing_control.v".
+        TS = 32'b00000001001100010010110011111111
+    Found 4-bit register for signal <i>.
+    Found 5-bit register for signal <tone_value>.
+    Found 32-bit register for signal <C1>.
+    Found 32-bit adder for signal <C1[31]_GND_46_o_add_1_OUT> created at line 40.
+    Found 4-bit adder for signal <i[3]_GND_46_o_add_41_OUT> created at line 83.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  41 D-type flip-flop(s).
+	inferred  10 Multiplexer(s).
+Unit <sing_control> synthesized.
+
+Synthesizing Unit <buzzer_module>.
+    Related source file is "F:\2019FPGA\2019Course_Design_MarkC\original_code\CourseDesign2019\buzzer_module.v".
+    Found 1-bit register for signal <beep_value>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <buzzer_module> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 27
+# Adders/Subtractors                                   : 32
  16-bit adder                                          : 2
  20-bit adder                                          : 1
- 23-bit adder                                          : 2
+ 23-bit adder                                          : 3
  24-bit adder                                          : 2
  29-bit adder                                          : 1
  3-bit adder                                           : 1
- 4-bit adder                                           : 17
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 20
  4-bit subtractor                                      : 1
-# Registers                                            : 134
- 1-bit register                                        : 113
+# Registers                                            : 143
+ 1-bit register                                        : 119
  16-bit register                                       : 2
  2-bit register                                        : 1
  20-bit register                                       : 1
- 23-bit register                                       : 2
+ 23-bit register                                       : 3
  24-bit register                                       : 2
  29-bit register                                       : 1
  3-bit register                                        : 1
+ 32-bit register                                       : 1
  4-bit register                                        : 9
+ 5-bit register                                        : 1
  6-bit register                                        : 1
  8-bit register                                        : 1
-# Comparators                                          : 18
+# Comparators                                          : 30
  16-bit comparator greater                             : 2
+ 23-bit comparator lessequal                           : 10
  29-bit comparator greater                             : 1
- 4-bit comparator greater                              : 14
- 4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 640
- 1-bit 2-to-1 multiplexer                              : 585
+ 4-bit comparator greater                              : 15
+ 4-bit comparator lessequal                            : 2
+# Multiplexers                                         : 649
+ 1-bit 2-to-1 multiplexer                              : 583
  16-bit 2-to-1 multiplexer                             : 2
  2-bit 2-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 1
- 23-bit 2-to-1 multiplexer                             : 2
+ 23-bit 2-to-1 multiplexer                             : 3
  24-bit 2-to-1 multiplexer                             : 6
  24-bit 8-to-1 multiplexer                             : 2
  29-bit 2-to-1 multiplexer                             : 2
  3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 29
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 32
+ 5-bit 2-to-1 multiplexer                              : 6
  6-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 6
 # FSMs                                                 : 1
@@ -457,6 +538,10 @@ WARNING:Xst:2677 - Node <rNumber_21> of sequential type is unconnected in block 
 WARNING:Xst:2677 - Node <rNumber_22> of sequential type is unconnected in block <U5>.
 WARNING:Xst:2677 - Node <rNumber_23> of sequential type is unconnected in block <U5>.
 
+Synthesizing (advanced) Unit <PWM_module>.
+The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
+Unit <PWM_module> synthesized (advanced).
+
 Synthesizing (advanced) Unit <Timer>.
 The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
 Unit <Timer> synthesized (advanced).
@@ -464,6 +549,10 @@ Unit <Timer> synthesized (advanced).
 Synthesizing (advanced) Unit <key_module>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 Unit <key_module> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sing_control>.
+The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
+Unit <sing_control> synthesized (advanced).
 
 Synthesizing (advanced) Unit <smg_logic_module>.
 The following registers are absorbed into counter <C1>: 1 register on signal <C1>.
@@ -477,31 +566,34 @@ Unit <smg_scan_module> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 22
+# Adders/Subtractors                                   : 25
  24-bit adder                                          : 2
  29-bit adder                                          : 1
  3-bit adder                                           : 1
- 4-bit adder                                           : 17
+ 4-bit adder                                           : 20
  4-bit subtractor                                      : 1
-# Counters                                             : 5
+# Counters                                             : 7
  16-bit up counter                                     : 2
  20-bit up counter                                     : 1
- 23-bit up counter                                     : 2
-# Registers                                            : 245
- Flip-Flops                                            : 245
-# Comparators                                          : 18
+ 23-bit up counter                                     : 3
+ 32-bit up counter                                     : 1
+# Registers                                            : 256
+ Flip-Flops                                            : 256
+# Comparators                                          : 30
  16-bit comparator greater                             : 2
+ 23-bit comparator lessequal                           : 10
  29-bit comparator greater                             : 1
- 4-bit comparator greater                              : 14
- 4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 635
- 1-bit 2-to-1 multiplexer                              : 585
+ 4-bit comparator greater                              : 15
+ 4-bit comparator lessequal                            : 2
+# Multiplexers                                         : 642
+ 1-bit 2-to-1 multiplexer                              : 583
  2-bit 2-to-1 multiplexer                              : 1
  24-bit 2-to-1 multiplexer                             : 6
  24-bit 8-to-1 multiplexer                             : 2
  29-bit 2-to-1 multiplexer                             : 2
  3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 29
+ 4-bit 2-to-1 multiplexer                              : 32
+ 5-bit 2-to-1 multiplexer                              : 6
  6-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 6
 # FSMs                                                 : 1
@@ -512,7 +604,7 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <U4/FSM_0> on signal <beep_flag[1:1]> with sequential encoding.
+Optimizing FSM <U4/FSM_0> on signal <beep_allow_flag[1:1]> with sequential encoding.
 -------------------
  State | Encoding
 -------------------
@@ -524,6 +616,7 @@ WARNING:Xst:2677 - Node <Num_temp_23> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <Num_temp_22> of sequential type is unconnected in block <logic_layer>.
 WARNING:Xst:2677 - Node <Num_temp_21> of sequential type is unconnected in block <logic_layer>.
 WARNING:Xst:2677 - Node <Num_temp_20> of sequential type is unconnected in block <logic_layer>.
+WARNING:Xst:1710 - FF/Latch <tone_value_4> (without init value) has a constant value of 0 in block <sing_control>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Module_Top> ...
 
@@ -547,6 +640,10 @@ WARNING:Xst:1710 - FF/Latch <Num_temp_3> (without init value) has a constant val
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_2> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_1> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Num_temp_0> (without init value) has a constant value of 0 in block <logic_layer>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <PWM_module> ...
+
+Optimizing unit <sing_control> ...
 WARNING:Xst:2677 - Node <U5/rNumber_23> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U5/rNumber_22> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U5/rNumber_21> of sequential type is unconnected in block <Module_Top>.
@@ -567,19 +664,24 @@ WARNING:Xst:2677 - Node <U4/Num_0> of sequential type is unconnected in block <M
 WARNING:Xst:2677 - Node <U4/Num_1> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U4/Num_2> of sequential type is unconnected in block <Module_Top>.
 WARNING:Xst:2677 - Node <U4/Num_3> of sequential type is unconnected in block <Module_Top>.
-WARNING:Xst:1710 - FF/Latch <U4/Num_temp_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_16> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_17> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <U4/Num_temp_17> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_18> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_16> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_temp_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_31> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_30> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_29> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_28> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_27> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_26> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U7/C1_25> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_17> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_18> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <U4/Num_purpose_19> (without init value) has a constant value of 0 in block <Module_Top>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Module_Top, actual ratio is 13.
-FlipFlop U4/j_0 has been replicated 1 time(s)
-FlipFlop U4/j_1 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block Module_Top, actual ratio is 16.
 
 Final Macro Processing ...
 
@@ -587,8 +689,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 306
- Flip-Flops                                            : 306
+# Registers                                            : 362
+ Flip-Flops                                            : 362
 
 =========================================================================
 
@@ -611,25 +713,26 @@ Top Level Output File Name         : Module_Top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 910
+# BELS                             : 1191
 #      GND                         : 1
-#      INV                         : 12
-#      LUT1                        : 131
-#      LUT2                        : 116
-#      LUT3                        : 87
-#      LUT4                        : 55
-#      LUT5                        : 79
-#      LUT6                        : 141
-#      MUXCY                       : 146
-#      MUXF7                       : 2
+#      INV                         : 21
+#      LUT1                        : 178
+#      LUT2                        : 150
+#      LUT3                        : 95
+#      LUT4                        : 57
+#      LUT5                        : 100
+#      LUT6                        : 174
+#      MUXCY                       : 218
+#      MUXF7                       : 9
 #      VCC                         : 1
-#      XORCY                       : 139
-# FlipFlops/Latches                : 306
+#      XORCY                       : 187
+# FlipFlops/Latches                : 362
 #      FD                          : 4
-#      FDC                         : 153
-#      FDCE                        : 90
+#      FDC                         : 201
+#      FDCE                        : 86
 #      FDE                         : 43
-#      FDPE                        : 16
+#      FDPE                        : 27
+#      FDR                         : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 24
@@ -643,16 +746,16 @@ Selected Device : 6slx9ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             306  out of  11440     2%  
- Number of Slice LUTs:                  621  out of   5720    10%  
-    Number used as Logic:               621  out of   5720    10%  
+ Number of Slice Registers:             362  out of  11440     3%  
+ Number of Slice LUTs:                  775  out of   5720    13%  
+    Number used as Logic:               775  out of   5720    13%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    662
-   Number with an unused Flip Flop:     356  out of    662    53%  
-   Number with an unused LUT:            41  out of    662     6%  
-   Number of fully used LUT-FF pairs:   265  out of    662    40%  
-   Number of unique control sets:        22
+ Number of LUT Flip Flop pairs used:    813
+   Number with an unused Flip Flop:     451  out of    813    55%  
+   Number with an unused LUT:            38  out of    813     4%  
+   Number of fully used LUT-FF pairs:   324  out of    813    39%  
+   Number of unique control sets:        28
 
 IO Utilization: 
  Number of IOs:                          25
@@ -682,7 +785,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 306   |
+CLK                                | BUFGP                  | 362   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -693,9 +796,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 5.901ns (Maximum Frequency: 169.466MHz)
-   Minimum input arrival time before clock: 5.348ns
-   Maximum output required time after clock: 4.162ns
+   Minimum period: 7.214ns (Maximum Frequency: 138.622MHz)
+   Minimum input arrival time before clock: 5.388ns
+   Maximum output required time after clock: 4.118ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -704,33 +807,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 5.901ns (frequency: 169.466MHz)
-  Total number of paths / destination ports: 8758 / 450
+  Clock period: 7.214ns (frequency: 138.622MHz)
+  Total number of paths / destination ports: 10962 / 512
 -------------------------------------------------------------------------
-Delay:               5.901ns (Levels of Logic = 3)
-  Source:            U5/rNumber_14 (FF)
+Delay:               7.214ns (Levels of Logic = 4)
+  Source:            U5/rNumber_11 (FF)
   Destination:       U4/cnt_28 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: U5/rNumber_14 to U4/cnt_28
+  Data Path: U5/rNumber_11 to U4/cnt_28
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             2   0.525   1.181  U5/rNumber_14 (U5/rNumber_14)
-     LUT6:I0->O            6   0.254   0.984  U4/Num_warning[19]_Number_Sig2[19]_LessThan_111_o22 (U4/Num_warning[19]_Number_Sig2[19]_LessThan_111_o21)
-     LUT6:I4->O            1   0.250   0.682  U4/Num_warning[19]_Number_Sig2[19]_LessThan_111_o23_1 (U4/Num_warning[19]_Number_Sig2[19]_LessThan_111_o23)
-     LUT6:I5->O           29   0.254   1.469  U4/_n3931_inv (U4/_n3931_inv)
+     FDCE:C->Q             2   0.525   1.181  U5/rNumber_11 (U5/rNumber_11)
+     LUT6:I0->O            2   0.254   0.834  U4/Num_warning[19]_Number_Sig2[19]_LessThan_99_o22 (U4/Num_warning[19]_Number_Sig2[19]_LessThan_99_o21)
+     LUT6:I4->O            1   0.250   0.682  U4/Num_warning[19]_Number_Sig2[19]_LessThan_99_o23_1 (U4/Num_warning[19]_Number_Sig2[19]_LessThan_99_o23)
+     LUT2:I1->O           17   0.254   1.209  U4/Mmux_j[2]_j[2]_MUX_724_o111 (U4/Mmux_j[2]_j[2]_MUX_724_o11)
+     LUT6:I5->O           29   0.254   1.469  U4/_n3988_inv1 (U4/_n3988_inv)
      FDE:CE                    0.302          U4/cnt_0
     ----------------------------------------
-    Total                      5.901ns (1.585ns logic, 4.316ns route)
-                                       (26.9% logic, 73.1% route)
+    Total                      7.214ns (1.839ns logic, 5.375ns route)
+                                       (25.5% logic, 74.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 302 / 302
+  Total number of paths / destination ports: 357 / 357
 -------------------------------------------------------------------------
-Offset:              5.348ns (Levels of Logic = 2)
+Offset:              5.388ns (Levels of Logic = 2)
   Source:            RSTn (PAD)
   Destination:       U3/count_19 (FF)
   Destination Clock: CLK rising
@@ -739,31 +843,31 @@ Offset:              5.348ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.328   0.875  RSTn_IBUF (RSTn_IBUF)
-     INV:I->O            259   0.255   2.431  U3/rst_n_inv1_INV_0 (U1/RSTn_inv)
+     IBUF:I->O             7   1.328   0.909  RSTn_IBUF (RSTn_IBUF)
+     INV:I->O            314   0.255   2.437  U3/rst_n_inv1_INV_0 (U1/RSTn_inv)
      FDC:CLR                   0.459          U1/rNum_22
     ----------------------------------------
-    Total                      5.348ns (2.042ns logic, 3.306ns route)
-                                       (38.2% logic, 61.8% route)
+    Total                      5.388ns (2.042ns logic, 3.346ns route)
+                                       (37.9% logic, 62.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
   Total number of paths / destination ports: 19 / 19
 -------------------------------------------------------------------------
-Offset:              4.162ns (Levels of Logic = 1)
-  Source:            U2/U3/rScan_5 (FF)
-  Destination:       Scan_Sig<5> (PAD)
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            U4/led_value_3 (FF)
+  Destination:       led<3> (PAD)
   Source Clock:      CLK rising
 
-  Data Path: U2/U3/rScan_5 to Scan_Sig<5>
+  Data Path: U4/led_value_3 to led<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDPE:C->Q             2   0.525   0.725  U2/U3/rScan_5 (U2/U3/rScan_5)
-     OBUF:I->O                 2.912          Scan_Sig_5_OBUF (Scan_Sig<5>)
+     FDE:C->Q              1   0.525   0.681  U4/led_value_3 (U4/led_value_3)
+     OBUF:I->O                 2.912          led_3_OBUF (led<3>)
     ----------------------------------------
-    Total                      4.162ns (3.437ns logic, 0.725ns route)
-                                       (82.6% logic, 17.4% route)
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
 
 =========================================================================
 
@@ -775,20 +879,20 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    5.901|         |         |         |
+CLK            |    7.214|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 10.16 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.74 secs
  
 --> 
 
 Total memory usage is 4539852 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   67 (   0 filtered)
+Number of warnings :   77 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

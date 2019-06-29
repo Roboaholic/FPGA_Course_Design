@@ -16,6 +16,10 @@ module Module_Top
 	wire [1:0]zero_signal;
 	wire [1:0]zero_signal2;
 	wire [23:0]Number_Sig2;
+	wire [4:0]tone;
+	wire sing_flag;
+	wire beep_flag1;
+	wire beep_flag2;
 	//wire [2:0]air_condition;
     Timer U1    
 	 (
@@ -56,9 +60,11 @@ module Module_Top
 		//.air_condition(air_condition),
 		.zero_signal(zero_signal),
 		.zero_signal2(zero_signal2),
-		.beep(beep),
-		.led(led)
+		.beep_flag(beep_flag1),
+		.led(led),
+		.sing_flag(sing_flag)
 		);
+		
 	  Timer U5 
 	 (
 	    .CLK( CLK ),
@@ -66,4 +72,31 @@ module Module_Top
 		.Number_Sig( Number_Sig2 ), // output - to U2
 		.zero_signal(zero_signal2)
 	 );	
+	 
+	 PWM_module U6
+	 (
+		.CLK( CLK ),
+		.RSTn( RSTn ),
+		.tone(tone),
+		.sing_flag(sing_flag),
+		.beep_flag(beep_flag2)
+	 );
+	 
+	 sing_control U7
+	  (
+		.CLK( CLK ),
+		.sing_flag(sing_flag),
+		.RSTn( RSTn ),
+		.tone(tone)
+	 );
+	 
+	 buzzer_module U8
+	 (
+		.CLK( CLK ),
+		.beep_flag1(beep_flag1),
+		.beep_flag2(beep_flag2),
+		.beep(beep)
+	);
+	 
+	 
 endmodule
