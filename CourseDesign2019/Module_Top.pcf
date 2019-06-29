@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Jun 29 11:30:46 2019
+// Written by: Map P.20131013 on Sat Jun 29 13:59:07 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -20,6 +20,10 @@ COMP "Scan_Sig<2>" LOCATE = SITE "F9" LEVEL 1;
 COMP "Scan_Sig<3>" LOCATE = SITE "F10" LEVEL 1;
 COMP "Scan_Sig<4>" LOCATE = SITE "E10" LEVEL 1;
 COMP "Scan_Sig<5>" LOCATE = SITE "D9" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "P4" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "N5" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "P5" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "M6" LEVEL 1;
 COMP "KEY_IN<0>" LOCATE = SITE "C3" LEVEL 1;
 COMP "KEY_IN<1>" LOCATE = SITE "D3" LEVEL 1;
 COMP "KEY_IN<2>" LOCATE = SITE "E4" LEVEL 1;
@@ -32,7 +36,23 @@ TIMEGRP sys_clk_pin = BEL "U3/count_19" BEL "U3/count_18" BEL "U3/count_17"
         BEL "U3/count_1" BEL "U3/count_0" BEL "U3/key_scan_r_3" BEL
         "U3/key_scan_r_2" BEL "U3/key_scan_r_1" BEL "U3/key_scan_r_0" BEL
         "U3/key_scan_3" BEL "U3/key_scan_2" BEL "U3/key_scan_1" BEL
-        "U3/key_scan_0" BEL "U1/C1_22" BEL "U1/C1_21" BEL "U1/C1_20" BEL
+        "U3/key_scan_0" BEL "U5/C1_22" BEL "U5/C1_21" BEL "U5/C1_20" BEL
+        "U5/C1_19" BEL "U5/C1_18" BEL "U5/C1_17" BEL "U5/C1_16" BEL "U5/C1_15"
+        BEL "U5/C1_14" BEL "U5/C1_13" BEL "U5/C1_12" BEL "U5/C1_11" BEL
+        "U5/C1_10" BEL "U5/C1_9" BEL "U5/C1_8" BEL "U5/C1_7" BEL "U5/C1_6" BEL
+        "U5/C1_5" BEL "U5/C1_4" BEL "U5/C1_3" BEL "U5/C1_2" BEL "U5/C1_1" BEL
+        "U5/C1_0" BEL "U5/rNumber_19" BEL "U5/rNumber_18" BEL "U5/rNumber_17"
+        BEL "U5/rNumber_16" BEL "U5/rNumber_15" BEL "U5/rNumber_14" BEL
+        "U5/rNumber_13" BEL "U5/rNumber_12" BEL "U5/rNumber_11" BEL
+        "U5/rNumber_10" BEL "U5/rNumber_9" BEL "U5/rNumber_8" BEL
+        "U5/rNumber_7" BEL "U5/rNumber_6" BEL "U5/rNumber_5" BEL
+        "U5/rNumber_4" BEL "U5/rNum_23" BEL "U5/rNum_0" BEL "U5/rNum_1" BEL
+        "U5/rNum_2" BEL "U5/rNum_3" BEL "U5/rNum_4" BEL "U5/rNum_5" BEL
+        "U5/rNum_6" BEL "U5/rNum_7" BEL "U5/rNum_8" BEL "U5/rNum_9" BEL
+        "U5/rNum_10" BEL "U5/rNum_11" BEL "U5/rNum_12" BEL "U5/rNum_13" BEL
+        "U5/rNum_14" BEL "U5/rNum_15" BEL "U5/rNum_16" BEL "U5/rNum_17" BEL
+        "U5/rNum_18" BEL "U5/rNum_19" BEL "U5/rNum_20" BEL "U5/rNum_21" BEL
+        "U5/rNum_22" BEL "U1/C1_22" BEL "U1/C1_21" BEL "U1/C1_20" BEL
         "U1/C1_19" BEL "U1/C1_18" BEL "U1/C1_17" BEL "U1/C1_16" BEL "U1/C1_15"
         BEL "U1/C1_14" BEL "U1/C1_13" BEL "U1/C1_12" BEL "U1/C1_11" BEL
         "U1/C1_10" BEL "U1/C1_9" BEL "U1/C1_8" BEL "U1/C1_7" BEL "U1/C1_6" BEL
@@ -54,15 +74,34 @@ TIMEGRP sys_clk_pin = BEL "U3/count_19" BEL "U3/count_18" BEL "U3/count_17"
         "U2/U1/C1_4" BEL "U2/U1/C1_3" BEL "U2/U1/C1_2" BEL "U2/U1/C1_1" BEL
         "U2/U1/C1_0" BEL "U2/U1/rNumber_3" BEL "U2/U1/rNumber_2" BEL
         "U2/U1/rNumber_1" BEL "U2/U1/rNumber_0" BEL "U2/U1/i_2" BEL
-        "U2/U1/i_1" BEL "U2/U2/rSMG_7" BEL "U2/U2/rSMG_6" BEL "U2/U2/rSMG_5"
-        BEL "U2/U2/rSMG_4" BEL "U2/U2/rSMG_3" BEL "U2/U2/rSMG_2" BEL
-        "U2/U2/rSMG_1" BEL "U2/U2/rSMG_0" BEL "U2/U3/C1_15" BEL "U2/U3/C1_14"
-        BEL "U2/U3/C1_13" BEL "U2/U3/C1_12" BEL "U2/U3/C1_11" BEL
-        "U2/U3/C1_10" BEL "U2/U3/C1_9" BEL "U2/U3/C1_8" BEL "U2/U3/C1_7" BEL
-        "U2/U3/C1_6" BEL "U2/U3/C1_5" BEL "U2/U3/C1_4" BEL "U2/U3/C1_3" BEL
-        "U2/U3/C1_2" BEL "U2/U3/C1_1" BEL "U2/U3/C1_0" BEL "U2/U3/rScan_5" BEL
-        "U2/U3/rScan_4" BEL "U2/U3/rScan_3" BEL "U2/U3/rScan_2" BEL
-        "U2/U3/i_2" BEL "U2/U3/i_1" BEL "U4/cnt_28" BEL "U4/cnt_27" BEL
+        "U2/U1/i_1" BEL "U2/U1/i_0" BEL "U2/U2/rSMG_7" BEL "U2/U2/rSMG_6" BEL
+        "U2/U2/rSMG_5" BEL "U2/U2/rSMG_4" BEL "U2/U2/rSMG_3" BEL
+        "U2/U2/rSMG_2" BEL "U2/U2/rSMG_1" BEL "U2/U2/rSMG_0" BEL "U2/U3/C1_15"
+        BEL "U2/U3/C1_14" BEL "U2/U3/C1_13" BEL "U2/U3/C1_12" BEL
+        "U2/U3/C1_11" BEL "U2/U3/C1_10" BEL "U2/U3/C1_9" BEL "U2/U3/C1_8" BEL
+        "U2/U3/C1_7" BEL "U2/U3/C1_6" BEL "U2/U3/C1_5" BEL "U2/U3/C1_4" BEL
+        "U2/U3/C1_3" BEL "U2/U3/C1_2" BEL "U2/U3/C1_1" BEL "U2/U3/C1_0" BEL
+        "U2/U3/rScan_5" BEL "U2/U3/rScan_4" BEL "U2/U3/rScan_3" BEL
+        "U2/U3/rScan_2" BEL "U2/U3/rScan_1" BEL "U2/U3/rScan_0" BEL
+        "U2/U3/i_2" BEL "U2/U3/i_1" BEL "U2/U3/i_0" BEL
+        "U4/beep_flag_FSM_FFd1" BEL "U4/Num_5" BEL "U4/Num_6" BEL "U4/Num_4"
+        BEL "U4/Num_7" BEL "U4/Num_8" BEL "U4/Num_9" BEL "U4/Num_10" BEL
+        "U4/Num_11" BEL "U4/Num_12" BEL "U4/Num_13" BEL "U4/Num_14" BEL
+        "U4/Num_15" BEL "U4/Num_16" BEL "U4/Num_17" BEL "U4/Num_18" BEL
+        "U4/Num_19" BEL "U4/led_value_3" BEL "U4/led_value_2" BEL
+        "U4/led_value_1" BEL "U4/led_value_0" BEL "U4/air_condition_tmp_3" BEL
+        "U4/air_condition_tmp_2" BEL "U4/air_condition_tmp_1" BEL
+        "U4/air_condition_tmp_0" BEL "U4/Num_purpose_4" BEL "U4/Num_temp_4"
+        BEL "U4/Num_purpose_5" BEL "U4/Num_temp_5" BEL "U4/Num_purpose_6" BEL
+        "U4/Num_purpose_8" BEL "U4/Num_purpose_12" BEL "U4/Num_temp_6" BEL
+        "U4/Num_temp_8" BEL "U4/Num_temp_12" BEL "U4/Num_purpose_7" BEL
+        "U4/Num_purpose_16" BEL "U4/Num_purpose_9" BEL "U4/Num_purpose_10" BEL
+        "U4/Num_purpose_15" BEL "U4/Num_purpose_11" BEL "U4/Num_purpose_13"
+        BEL "U4/Num_purpose_14" BEL "U4/Num_temp_7" BEL "U4/Num_temp_9" BEL
+        "U4/Num_temp_10" BEL "U4/Num_temp_13" BEL "U4/Num_temp_11" BEL
+        "U4/Num_temp_14" BEL "U4/Num_temp_15" BEL "U4/Num_20" BEL
+        "U4/mode_flag_0" BEL "U4/zero_flag" BEL "U4/beep_signal" BEL
+        "U4/Num_21" BEL "U4/Num_22" BEL "U4/cnt_28" BEL "U4/cnt_27" BEL
         "U4/cnt_26" BEL "U4/cnt_25" BEL "U4/cnt_24" BEL "U4/cnt_23" BEL
         "U4/cnt_22" BEL "U4/cnt_21" BEL "U4/cnt_20" BEL "U4/cnt_19" BEL
         "U4/cnt_18" BEL "U4/cnt_17" BEL "U4/cnt_16" BEL "U4/cnt_15" BEL
@@ -70,23 +109,8 @@ TIMEGRP sys_clk_pin = BEL "U3/count_19" BEL "U3/count_18" BEL "U3/count_17"
         "U4/cnt_10" BEL "U4/cnt_9" BEL "U4/cnt_8" BEL "U4/cnt_7" BEL
         "U4/cnt_6" BEL "U4/cnt_5" BEL "U4/cnt_4" BEL "U4/cnt_3" BEL "U4/cnt_2"
         BEL "U4/cnt_1" BEL "U4/cnt_0" BEL "U4/j_2" BEL "U4/j_1" BEL "U4/j_0"
-        BEL "U4/Num_5" BEL "U4/Num_6" BEL "U4/Num_4" BEL "U4/Num_8" BEL
-        "U4/Num_9" BEL "U4/Num_7" BEL "U4/Num_11" BEL "U4/Num_12" BEL
-        "U4/Num_10" BEL "U4/Num_14" BEL "U4/Num_15" BEL "U4/Num_13" BEL
-        "U4/Num_17" BEL "U4/Num_18" BEL "U4/Num_16" BEL "U4/Num_19" BEL
-        "U4/Num_purpose_15" BEL "U4/Num_temp_15" BEL "U4/Num_purpose_4" BEL
-        "U4/Num_temp_4" BEL "U4/Num_purpose_5" BEL "U4/Num_temp_5" BEL
-        "U4/Num_purpose_8" BEL "U4/Num_purpose_12" BEL "U4/Num_temp_8" BEL
-        "U4/Num_temp_12" BEL "U4/Num_purpose_6" BEL "U4/Num_temp_6" BEL
-        "U4/Num_purpose_13" BEL "U4/Num_purpose_11" BEL "U4/Num_purpose_14"
-        BEL "U4/Num_purpose_7" BEL "U4/Num_purpose_9" BEL "U4/Num_purpose_10"
-        BEL "U4/Num_temp_7" BEL "U4/Num_temp_10" BEL "U4/Num_temp_11" BEL
-        "U4/Num_temp_9" BEL "U4/Num_temp_13" BEL "U4/Num_temp_14" BEL
-        "U4/Num_purpose_16" BEL "U4/Num_20" BEL "U4/Num_21" BEL "U4/Num_22"
-        BEL "U4/mode_flag_0" BEL "U4/zero_flag_0" BEL "U4/beep_flag_0" BEL
-        "U2/U1/i_0" BEL "U2/U3/rScan_1" BEL "U2/U3/rScan_0" BEL "U2/U3/i_0"
-        BEL "U1/i_2" BEL "U1/i_1" BEL "U1/i_0" BEL "U4/j_0_1" BEL "U4/j_1_1"
-        BEL "U4/j_2_1" BEL "CLK_BUFGP/BUFG";
+        BEL "U5/i_2" BEL "U5/i_1" BEL "U5/i_0" BEL "U1/i_2" BEL "U1/i_1" BEL
+        "U1/i_0" BEL "U4/j_1_1" BEL "U4/j_0_1" BEL "CLK_BUFGP/BUFG";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

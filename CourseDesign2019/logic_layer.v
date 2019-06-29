@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: FPGA弟弟组
+// Engineer: 常蒙 160201002
 // 
 // Create Date:    21:24:59 06/27/2019 
 // Design Name: 
@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
-// Description: 
+// Description: only changmeng works while others are having fun，plz give them 60 scores，ESPECIALLY ZHAO WEN HAI
 //
 // Dependencies: 
 //
@@ -23,10 +23,13 @@ module logic_layer(
 		input RSTn,
 		input [3:0]key_value,
 	   input [23:0]Number_Sig,
-		input beep,
-		output [2:0]air_condition,
+		input [23:0]Number_Sig2,
+		output beep,
+		output [3:0]led,
+		//output [2:0]air_condition,
 		output [23:0]Num_output,
-		output [1:0]zero_signal
+		output [1:0]zero_signal,
+		output [1:0]zero_signal2
     );
 	 reg [23:0]Num;
     reg [2:0]j;
@@ -34,13 +37,15 @@ module logic_layer(
 	 reg [23:0]Num_purpose;  //正常数格式
 	 reg [23:0]Num_bias;    
 	 reg [23:0]Num_warning;
-	 reg [2:0]air_condition_tmp;
-	 reg [1:0]zero_flag;
+	 reg [3:0]air_condition_tmp;
+	 reg zero_flag;
+	 reg zero_flag2;
 	 reg [28:0]cnt;
 	 reg cmp_flag;
 	 reg [1:0]mode_flag;//如果是1代表定时睡眠模式，如果等于2代表定时关机模式
 	 reg [1:0]beep_flag;
 	 reg beep_signal;
+	 reg [3:0]led_value;
 	/******************************************/    
 	 
 	parameter TMS = 28'd99_999_999;  
@@ -92,17 +97,21 @@ endtask
 				 Num_purpose<=23'd99999;  //default maxmum value
 				 Num_warning<=12'b0011_0000_0000;
 				 beep_signal<=1'b1;
-				 beep_flag==1'b1;//允许蜂鸣器响
+				 beep_flag<=1'b1;//允许蜂鸣器响
+				 zero_flag2<=1'b0;
 			end
 			else
+			begin
+
             case( j )
 				
             0:     //init mode
 				if(key_value[0]) j <= j + 1'b1;
             else 
 				begin
-					Num <= 23'b0;  
+					Num[19:4] <= 16'b1011_1011_1011_1011;  
 					mode_flag<=1'b0;
+
 				end
 				
 				1:  //状态1，设定睡眠时间
@@ -199,6 +208,7 @@ endtask
 						if(mode_flag==1'd1) Num[19:4]<=16'b1011_1011_1011_1011;
 						else if(mode_flag==1'd2) Num[19:4]<=16'b1100_1100_1100_1100;
 					end
+					/*
 					if(Number_Sig[19:4]>Num_warning[19:4])
 					begin
 						//Num[19:4]<=16'b1000_1000_1000_1000;
@@ -215,38 +225,112 @@ endtask
 							cnt <= cnt + 1'b1;
 						end
 					end	
-
+					*/
 					Num[23:20] <= 4'b0011;
 				end
 				4: //设置空气质量
-				if(key_value[0]) j <= 1'b0;
+				if(key_value[0]) j <= j + 1'b1;
 				else 
 				begin
 					if(key_value[1])   //二号按键，空气质量+
 					begin 
 						Num_temp[7:4] <= Num_temp[7:4] + 1'b1;
-						if(Num_temp[7:4]>=3'd5) Num_temp[7:4] <= 1'b0;
+						if(Num_temp[7:4]>=3'd4) Num_temp[7:4] <= 1'b0;
+						air_condition_tmp[3:0] <= Num_temp[7:4];
+				
 					end
 					
 					else if(key_value[2])   //三号按键，空气质量
 					begin
 						Num_temp[7:4] <= Num_temp[7:4] - 1'b1;
-						if(Num_temp[7:4]==4'b1111) Num_temp[7:4] <= 3'd5;
-					end
+						if(Num_temp[7:4]==4'b1111) Num_temp[7:4] <= 3'd4;
+						air_condition_tmp[3:0] <= Num_temp[7:4];
 				
-					else if(key_value[3])   //四号按键，确定计时
-					begin
-						air_condition_tmp[2:0] <= Num_temp[2:0];
 					end
+				/*
+					else if(key_value[3])   //四号按键，确定
+					begin
+						air_condition_tmp[3:0] <= Num_temp[7:4];
+					end
+					*/
 				Num<=Num_temp;
 				Num[23:20] <= 3'd4;
 				end
+				5: //手动模式
+				if(key_value[0]) j <= j+ 1'b1;
+				else 
+				begin
+					if(key_value[2])   
+					begin 
+						Num_temp[7:4] <= Num_temp[7:4] + 1'b1;
+						if(Num_temp[7:4]>=3'd4) Num_temp[7:4] <= 1'b0;
+						air_condition_tmp[3:0] <= Num_temp[7:4];
+				
+					end
+					
+					else if(key_value[1])   //三号按键，空气质量
+					begin
+						Num_temp[7:4] <= Num_temp[7:4] - 1'b1;
+						if(Num_temp[7:4]==4'b1111) Num_temp[7:4] <= 3'd4;
+						air_condition_tmp[3:0] <= Num_temp[7:4];
+					end
+				/*
+					else if(key_value[3])   //四号按键，确定
+					begin
+						air_condition_tmp[3:0] <= Num_temp[7:4];
+					end
+					*/
+				Num[19:4]<=16'b1100_1100_1100_1100;
+				Num[23:20] <= 3'd5;
+				end
+				
+				6://显示运行时间
+				if(key_value[0]) j <= 1'b0;
+				else
+				begin
+					Num[19:4]<=Number_Sig2[19:4];
+					Num[23:20]<=4'd6;
+				end
 			endcase
+			
+			if(Number_Sig2[19:4]>Num_warning[19:4])
+					begin
+						//Num[19:4]<=16'b1000_1000_1000_1000;
+						if(beep_flag==1'b1) 
+						begin
+							//beep_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
+							beep_signal<=1'b0;//蜂鸣器响
+							Num[19:4]<=16'b1001_1001_1001_1001;
+							if(cnt>TMS) 
+							begin
+								beep_flag<=1'b0;
+								beep_signal<=1'b1;
+							end
+							cnt <= cnt + 1'b1;
+						end
+					end	
+		end
 	end
+	
+
+	always @ ( posedge CLK )
+	begin
+				case(air_condition_tmp)
+					0: led_value[3:0]=4'b0000;
+					1: led_value[3:0]=4'b0001;
+					2: led_value[3:0]=4'b0011;
+					3: led_value[3:0]=4'b0111;
+					4: led_value[3:0]=4'b1111;
+				endcase
+	end
+
 	assign zero_signal = zero_flag;
+	assign zero_signal2 = zero_flag2;
 	assign Num_output = Num;
-	assign air_condition = air_condition_tmp;
+	//assign air_condition = air_condition_tmp;
 	assign beep = beep_signal;
+	assign led = led_value;
+	
 endmodule
 
 
