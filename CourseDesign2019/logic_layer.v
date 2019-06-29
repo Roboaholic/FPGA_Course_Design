@@ -23,19 +23,27 @@ module logic_layer(
 		input RSTn,
 		input [3:0]key_value,
 	   input [23:0]Number_Sig,
+		input beep,
 		output [2:0]air_condition,
-		output [23:0]Num_output
+		output [23:0]Num_output,
+		output [1:0]zero_signal
     );
 	 reg [23:0]Num;
     reg [2:0]j;
 	 reg [23:0]Num_temp;
 	 reg [23:0]Num_purpose;  //正常数格式
 	 reg [23:0]Num_bias;    
+	 reg [23:0]Num_warning;
 	 reg [2:0]air_condition_tmp;
-	
+	 reg [1:0]zero_flag;
+	 reg [28:0]cnt;
+	 reg cmp_flag;
+	 reg [1:0]mode_flag;//如果是1代表定时睡眠模式，如果等于2代表定时关机模式
+	 reg [1:0]beep_flag;
+	 reg beep_signal;
 	/******************************************/    
 	 
-	parameter T200MS = 23'd9_999_999;  
+	parameter TMS = 28'd99_999_999;  
 	 
 	/******************************************/  
 	 
@@ -44,7 +52,7 @@ module logic_layer(
 	always @ ( posedge CLK or negedge RSTn )
 	    if( !RSTn )
 			C1 <= 23'd0;
-		else if( C1 == T200MS )
+		else if( C1 == TMS )
 		    C1 <= 23'd0;
 		else
 		    C1 <= C1 + 1'b1;
@@ -73,7 +81,7 @@ task number_intrans;
 endtask
 
 */
-	reg [1:0]beep_flag;
+
     always @ ( posedge CLK or negedge RSTn )
 	 begin
 			if( !RSTn )
@@ -82,6 +90,9 @@ endtask
 			    Num <= 1'd0;  //Num直接和数码管挂钩
 				 Num_temp <= 23'd0;
 				 Num_purpose<=23'd99999;  //default maxmum value
+				 Num_warning<=12'b0011_0000_0000;
+				 beep_signal<=1'b1;
+				 beep_flag==1'b1;//允许蜂鸣器响
 			end
 			else
             case( j )
@@ -91,9 +102,10 @@ endtask
             else 
 				begin
 					Num <= 23'b0;  
+					mode_flag<=1'b0;
 				end
 				
-				1:  //状态1，设定计时时间
+				1:  //状态1，设定睡眠时间
 				if(key_value[0])
 				begin
 					j <= j + 1'b1;
@@ -101,65 +113,119 @@ endtask
 				end
 				else
 				begin
-					if(key_value[1])   //二号按键，十位加减
+					if(key_value[2])   //二号按键，十位加减
 					begin 
 						Num_temp <= Num_temp + 16'b1_0000_0000;
 						if(Num_temp[11:8]>4'd8) Num_temp[11:8] <= 1'd0;
 					end
-					
-					else if(key_value[3])   //四号号按键，百位加减
+					else if(key_value[1])   //四号号按键，百位加减
 					begin
 						Num_temp <= Num_temp + 16'd1_0000_0000_0000;
 						if(Num_temp[15:12]>4'd8) Num_temp[15:12] <= 1'd0;
 					end
 					
-					else if(key_value[1])   //三号按键，确定计时
+					else if(key_value[3])   //三号按键，确定计时
 					begin
-						Num_purpose <= Num_temp;
-						Num_bias <= Number_Sig;
+						Num_purpose[19:4] <= Num_temp[19:4];
+						Num_bias[7:4] <= Number_Sig[7:4];
+						Num_bias[11:8] <= Number_Sig[11:8];
+						Num_bias[15:12] <= Number_Sig[15:12];
+						Num_bias[19:16] <= Number_Sig[19:16];
 						beep_flag <= 1'b1;  //重新设定时间后，beep_flag置1，允许蜂鸣器
+						zero_flag <= 1'b1;
+						mode_flag <= 1'd1;
 					end
 					
 					Num <= Num_temp;
 					Num[23:20] <= 4'b0001;
 				end
+				
+				
+				2:  //状态1，设定关机时间
+				if(key_value[0])
+				begin
+					j <= j + 1'b1;
+					Num_temp <= 23'b0;
+				end
+				else
+				begin
+					if(key_value[2])   //二号按键，十位加减
+					begin 
+						Num_temp <= Num_temp + 16'b1_0000_0000;
+						if(Num_temp[11:8]>4'd8) Num_temp[11:8] <= 1'd0;
+					end
+					else if(key_value[1])   //四号号按键，百位加减
+					begin
+						Num_temp <= Num_temp + 16'd1_0000_0000_0000;
+						if(Num_temp[15:12]>4'd8) Num_temp[15:12] <= 1'd0;
+					end
+					
+					else if(key_value[3])   //三号按键，确定计时
+					begin
+						Num_purpose[19:4] <= Num_temp[19:4];
+						Num_bias[7:4] <= Number_Sig[7:4];
+						Num_bias[11:8] <= Number_Sig[11:8];
+						Num_bias[15:12] <= Number_Sig[15:12];
+						Num_bias[19:16] <= Number_Sig[19:16];
+						beep_flag <= 1'b1;  //重新设定时间后，beep_flag置1，允许蜂鸣器
+						zero_flag <= 1'b1;
+						mode_flag <= 1'd2;
+					end
+					
+					Num <= Num_temp;
+					Num[23:20] <= 4'b0010;
+				end
 
-				2:                    //正计时模式
+				3:                    //正计时模式
 				if(key_value[0]) 
 				begin
 					j <= j+1'b1;
 					Num_temp<=1'b0;
+					cnt<=1'b0;
+					cmp_flag<=1'b0;
 				end
 				else 
 				begin 
-					Num[3:0] <= Number_Sig[3:0]-Num_bias[3:0];
+				/*
 					Num[7:4] <= Number_Sig[7:4]-Num_bias[7:4];
 					Num[11:8] <= Number_Sig[11:8]-Num_bias[11:8];
 					Num[15:12] <= Number_Sig[15:12]-Num_bias[15:12];
 					Num[19:16] <= Number_Sig[19:16]-Num_bias[19:16];
-					Num[23:20] <= Number_Sig[23:20]-Num_bias[23:20];
-					if(Num[19:4]>Num_purpose[19:4]) 
+					*/
+					zero_flag<=1'd0;
+					Num<=Number_Sig;
+					if(Number_Sig[19:4]>Num_purpose[19:4]) 
 					begin
-						Num[19:4]<=16'b1000_1000_1000_1000;
-						if(C1==T200MS)
+						if(mode_flag==1'd1) Num[19:4]<=16'b1011_1011_1011_1011;
+						else if(mode_flag==1'd2) Num[19:4]<=16'b1100_1100_1100_1100;
+					end
+					if(Number_Sig[19:4]>Num_warning[19:4])
+					begin
+						//Num[19:4]<=16'b1000_1000_1000_1000;
+						if(beep_flag==1'b1) 
 						begin
-							if(beep_flag==1'b1) 
+							//beep_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
+							beep_signal<=1'b0;//蜂鸣器响
+							Num[19:4]<=16'b1001_1001_1001_1001;
+							if(cnt>TMS) 
 							begin
-								beep_flag <= 1'b0;  //蜂鸣器flag关闭，确保下次设时前只响一次
-								//蜂鸣器响
+								beep_flag<=1'b0;
+								beep_signal<=1'b1;
 							end
+							cnt <= cnt + 1'b1;
 						end
 					end	
-					Num[23:20] <= 4'b0010;
+
+					Num[23:20] <= 4'b0011;
 				end
-				3: //设置空气质量
+				4: //设置空气质量
 				if(key_value[0]) j <= 1'b0;
 				else 
 				begin
 					if(key_value[1])   //二号按键，空气质量+
 					begin 
 						Num_temp[7:4] <= Num_temp[7:4] + 1'b1;
-						if(Num_temp[7:4]>3'd5) Num_temp[7:4] <= 1'b0;
+						if(Num_temp[7:4]>=3'd5) Num_temp[7:4] <= 1'b0;
 					end
 					
 					else if(key_value[2])   //三号按键，空气质量
@@ -173,12 +239,14 @@ endtask
 						air_condition_tmp[2:0] <= Num_temp[2:0];
 					end
 				Num<=Num_temp;
-				Num[23:20] <= 2'd3;
+				Num[23:20] <= 3'd4;
 				end
 			endcase
-	end	
+	end
+	assign zero_signal = zero_flag;
 	assign Num_output = Num;
 	assign air_condition = air_condition_tmp;
+	assign beep = beep_signal;
 endmodule
 
 

@@ -26,7 +26,11 @@ NET Scan_Sig<0>            LOC = D8 | IOSTANDARD = "LVCMOS33";  ##
 
 
 ########KEY Pin define#####################
-NET key_in<0>                        		     LOC = C3 | IOSTANDARD = "LVCMOS33";       ## KEY1
-NET key_in<1>                       	        LOC = D3 | IOSTANDARD = "LVCMOS33";       ## KEY2
-NET key_in<2>                                  LOC = E4 | IOSTANDARD = "LVCMOS33";       ## KEY3
-NET key_in<3>                                  LOC = E3 | IOSTANDARD = "LVCMOS33";       ## KEY4
+NET key_in<0>					LOC = C3 | IOSTANDARD = "LVCMOS33";       ## KEY1
+NET key_in<1>					LOC = D3 | IOSTANDARD = "LVCMOS33";       ## KEY2
+NET key_in<2>					LOC = E4 | IOSTANDARD = "LVCMOS33";       ## KEY3
+NET key_in<3>					LOC = E3 | IOSTANDARD = "LVCMOS33";       ## KEY4
+
+
+########buzzer Pin define##################### 
+NET beep							LOC = J11 | IOSTANDARD = "LVCMOS33"; ## Buzzer output

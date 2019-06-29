@@ -75,7 +75,7 @@ module smg_logic_module
 	
 					 1:
 					 if( C1 == T1MS ) i <= i + 1'b1;
-					 else rNumber <= 1'd0;          //万位数码管显�
+					 else rNumber <= 4'd12;          //万位数码管显�
 					 
 					 2:
 					 if( C1 == T1MS ) i <= i + 1'b1;

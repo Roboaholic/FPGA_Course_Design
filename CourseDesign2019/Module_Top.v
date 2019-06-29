@@ -3,6 +3,7 @@ module Module_Top
     input CLK,
 	input RSTn,
 	input [3:0]KEY_IN,
+	input beep,
 	output [7:0]SMG_Data,
 	output [5:0]Scan_Sig
 );
@@ -11,12 +12,14 @@ module Module_Top
 	wire [23:0]Num_output;		
    wire [23:0]Number_Sig;
 	wire [3:0]key_value; 
+	wire [1:0]zero_signal;
 	//wire [2:0]air_condition;
     Timer U1    
 	 (
 	    .CLK( CLK ),
 		.RSTn( RSTn ),
-		.Number_Sig( Number_Sig ) // output - to U2
+		.Number_Sig( Number_Sig ), // output - to U2
+		.zero_signal(zero_signal)
 	 );
 	 
 	 /******************************/ 
@@ -46,6 +49,8 @@ module Module_Top
 		.Num_output( Num_output ), // input - from U1
 		.key_value( key_value ),
 		.Number_Sig(Number_Sig),
-		.air_condition(air_condition)
+		.air_condition(air_condition),
+		.zero_signal(zero_signal),
+		.beep(beep)
 		);
 endmodule
